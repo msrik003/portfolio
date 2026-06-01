@@ -1,0 +1,40 @@
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #0f172a;
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+}
+
+h1 {
+  font-size: 40px;
+}
+
+section {
+  padding: 50px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h2 {
+  color: #38bdf8;
+}
+
+ul {
+  line-height: 2;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}

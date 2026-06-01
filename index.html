@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Medhani Sri Kurra | Clinical Research Portfolio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<style>
+body {
+  background: #050816;
+  color: white;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99,102,241,0.4), transparent 60%);
+  filter: blur(80px);
+  animation: float 8s infinite ease-in-out;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(40px); }
+}
+
+.glass {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow top-10 left-10"></div>
+<div class="glow bottom-10 right-10"></div>
+
+<!-- HERO -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative z-10">
+
+  <h1 class="text-5xl md:text-6xl font-bold">Medhani Sri Kurra</h1>
+
+  <p class="mt-4 text-lg text-gray-300">
+    PharmD Graduate | Clinical Research | Pharmacovigilance | Clinical Data Management
+  </p>
+
+  <p class="mt-6 text-cyan-300 text-xl">
+    Building healthcare intelligence through research & data-driven clinical insights
+  </p>
+
+  <div class="mt-8 flex gap-4">
+    <a href="Medhani Resume.pdf" class="px-6 py-3 bg-indigo-600 rounded-xl hover:scale-105 transition">
+      Download Resume
+    </a>
+    <a href="#contact" class="px-6 py-3 glass hover:scale-105 transition">
+      Contact Me
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="py-20 px-6 max-w-6xl mx-auto glass p-10">
+  <h2 class="text-3xl font-bold mb-6">About Me</h2>
+
+  <p class="text-gray-300 leading-relaxed">
+    I am a PharmD graduate specializing in clinical research, pharmacovigilance, and healthcare data management.
+    My academic and hospital-based training has provided hands-on exposure to real-world clinical environments,
+    where I actively contributed to patient care documentation, adverse drug reaction (ADR) monitoring, and
+    medication therapy management.
+    <br><br>
+
+    I am proficient in <b>Good Clinical Practice (GCP)</b>, <b>ICH guidelines</b>, and clinical documentation systems
+    including <b>EMR and REDCap</b>. I have also developed strong analytical skills using tools such as
+    <b>GraphPad Prism</b> for statistical evaluation of clinical datasets.
+    <br><br>
+
+    My long-term goal is to contribute to global clinical research organizations (CROs), pharmaceutical companies,
+    and healthcare AI systems that improve patient safety, drug effectiveness, and evidence-based decision-making.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section class="py-20 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold mb-8">Core Competencies</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <div class="glass p-6">Clinical Data Management (CDM)</div>
+    <div class="glass p-6">Pharmacovigilance & ADR Reporting</div>
+    <div class="glass p-6">Clinical Trial Documentation</div>
+    <div class="glass p-6">EMR & REDCap Systems</div>
+    <div class="glass p-6">GraphPad Prism Analysis</div>
+    <div class="glass p-6">GCP & ICH Compliance</div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="py-20 px-6 max-w-6xl mx-auto glass p-10">
+  <h2 class="text-3xl font-bold mb-6">Clinical Internship Experience</h2>
+
+  <p class="text-gray-300 leading-relaxed">
+    <b>PharmD Intern – Aster Ramesh Hospitals, Guntur</b><br><br>
+
+    During my hospital internship, I worked closely with physicians, nurses, and clinical pharmacists
+    across multiple departments to support patient care and clinical documentation workflows.<br><br>
+
+    ✔ Monitored and documented Adverse Drug Reactions (ADR) for pharmacovigilance reporting<br>
+    ✔ Assisted in medication therapy management and patient counseling<br>
+    ✔ Supported clinical data entry and EMR documentation accuracy<br>
+    ✔ Participated in ward rounds and interdisciplinary healthcare discussions<br>
+    ✔ Contributed to patient safety and medication adherence monitoring
+  </p>
+</section>
+
+<!-- PROJECT -->
+<section class="py-20 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold mb-6">Research Project (Thesis Work)</h2>
+
+  <div class="glass p-8">
+
+    <h3 class="text-xl font-semibold text-cyan-300">
+      Long-Term Impact of Immunization on Disease Prevention & Community Health
+    </h3>
+
+    <p class="text-gray-300 mt-4 leading-relaxed">
+
+      This research project was conducted as part of my PharmD academic thesis.
+      It was designed as a <b>retrospective cross-sectional study</b> analyzing immunization
+      coverage and its long-term effects on pediatric health outcomes.<br><br>
+
+      ✔ Study Population: 1,156 participants<br>
+      ✔ Data Source: WHO-validated questionnaires<br>
+      ✔ Methodology: Cross-sectional retrospective analysis<br>
+      ✔ Tool Used: GraphPad Prism for statistical evaluation<br><br>
+
+      <b>Key Findings:</b><br>
+      • 97% infant immunization coverage rate observed<br>
+      • Strong correlation between immunization compliance and reduced disease incidence<br>
+      • Major barrier identified: logistical access issues (69.71%)<br><br>
+
+      <b>Outcome:</b><br>
+      The study highlights the importance of strengthening immunization accessibility programs
+      to improve long-term public health outcomes and reduce preventable diseases.
+    </p>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="py-20 px-6 max-w-6xl mx-auto glass p-10">
+  <h2 class="text-3xl font-bold mb-6">Certifications</h2>
+
+  <p class="text-gray-300 leading-relaxed">
+    ✔ Good Clinical Practice (GCP) – NIDA Clinical Trials Network<br>
+    ✔ Pharmacogenomics & Personalized Medicine – CliMed Academy<br>
+    ✔ Research Methods in Health Promotion – NPTEL IIT Kharagpur<br>
+    ✔ Data Management for Clinical Research – Vanderbilt University<br>
+    ✔ Ethics & Governance of AI in Healthcare – WHO OpenWHO
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 px-6 text-center">
+
+  <h2 class="text-3xl font-bold">Contact Information</h2>
+
+  <div class="mt-6 text-gray-300 space-y-2">
+
+    <p>📍 Location: Guntur, Andhra Pradesh, India</p>
+    <p>📧 Email: medhanisrik@gmail.com</p>
+    <p>📞 Phone: +91 7569005955 / +91 8179940069</p>
+    <p>🔗 LinkedIn: linkedin.com/in/medhani-sri-kurra</p>
+
+  </div>
+
+</section>
+
+<script>
+gsap.from("h1", {opacity:0, y:50, duration:1});
+gsap.from("p", {opacity:0, y:30, duration:1, delay:0.3});
+
+gsap.utils.toArray(".glass").forEach(el => {
+  gsap.from(el, {
+    scrollTrigger: el,
+    opacity: 0,
+    y: 60,
+    duration: 1
+  });
+});
+</script>
+
+</body>
+</html>
