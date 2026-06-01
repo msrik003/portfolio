@@ -1,138 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Medhani Sri Kurra | Clinical Research Portfolio</title>
+<title>Medhani Sri Kurra | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-<script src="https://cdn.tailwindcss.com"></script>
+<!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
-body{
-  margin:0;
-  background:#050816;
-  color:white;
-  font-family:"Poppins",sans-serif;
-  overflow-x:hidden;
+
+body {
+  margin: 0;
+  background: #050816;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
-/* INTRO */
-.intro{
-  position:fixed;
-  inset:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:#050816;
-  z-index:9999;
-  animation:fadeOut 2.5s ease forwards;
-  animation-delay:2.2s;
+/* ================= INTRO ================= */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  background: #050816;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOut 2.5s ease forwards;
+  animation-delay: 2.2s;
 }
 
-.intro-name{
-  font-size:95px;
-  font-family:"Playfair Display",serif;
-  font-style:italic;
-  background:linear-gradient(90deg,#fff,#93c5fd);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  opacity:0;
-  transform:translateY(40px);
-  animation:rise 1.2s ease forwards;
+.intro-name {
+  font-size: 80px;
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: rise 1.2s ease forwards;
 }
 
-.intro-sub{
-  text-align:center;
-  margin-top:10px;
-  color:#93c5fd;
-  opacity:0;
-  animation:fadeIn 1.5s ease forwards;
-  animation-delay:.8s;
+.intro-sub {
+  margin-top: 10px;
+  color: #93c5fd;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 0.8s;
 }
 
-@keyframes rise{to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{to{opacity:1}}
-@keyframes fadeOut{to{opacity:0;visibility:hidden}}
-
-/* floating M */
-.m{
-  position:absolute;
-  font-size:200px;
-  font-weight:900;
-  color:rgba(147,197,253,0.05);
-  animation:float 10s infinite ease-in-out;
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes float{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-50px)}
-  100%{transform:translateY(0)}
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
 }
 
-.hero h1{
-  font-size:72px;
-  font-family:"Playfair Display",serif;
-  background:linear-gradient(90deg,#fff,#93c5fd);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+/* ================= FLOATING BACKGROUND ================= */
+
+.bg-m {
+  position: fixed;
+  font-size: 180px;
+  font-weight: 900;
+  color: rgba(147,197,253,0.05);
+  z-index: 0;
+  animation: float 10s infinite ease-in-out;
 }
 
-.tag{
-  margin-top:10px;
-  color:#cbd5e1;
+.bg-m:nth-child(2) { top: 10%; left: 5%; }
+.bg-m:nth-child(3) { top: 50%; right: 10%; animation-delay: 2s; }
+.bg-m:nth-child(4) { bottom: 10%; left: 40%; animation-delay: 4s; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
 }
 
-.quote{
-  margin-top:20px;
-  font-style:italic;
-  color:#a5b4fc;
+/* ================= HERO ================= */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 20px;
 }
 
-/* sections */
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:70px 20px;
+.hero h1 {
+  font-size: 60px;
+  font-family: "Playfair Display";
 }
 
-/* cards */
-.card{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
-  padding:22px;
-  border-radius:16px;
-  margin-top:15px;
-  backdrop-filter:blur(12px);
-  line-height:1.8;
+.hero p {
+  color: #cbd5e1;
+  margin-top: 10px;
 }
 
-/* headings */
-h2{
-  font-family:"Playfair Display",serif;
-  font-size:30px;
-  color:#38bdf8;
-  margin-bottom:10px;
+.quote {
+  margin-top: 20px;
+  color: #a5b4fc;
+  font-style: italic;
 }
 
-h3{
-  color:#93c5fd;
+/* ================= SECTIONS ================= */
+
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 70px 20px;
+  position: relative;
+  z-index: 2;
 }
+
+h2 {
+  color: #38bdf8;
+  font-family: "Playfair Display";
+  margin-bottom: 15px;
+}
+
+.box {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+ul {
+  line-height: 2;
+}
+
+/* ================= ANIMATION ================= */
+
+.fade {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
 </style>
 </head>
 
@@ -142,194 +162,82 @@ h3{
 <div class="intro">
   <div>
     <div class="intro-name">MSK</div>
-    <div class="intro-sub">Clinical Trials • Clinical Research • Healthcare Science</div>
+    <div class="intro-sub">Welcome to my digital portfolio</div>
   </div>
 </div>
 
-<!-- floating background -->
-<div class="m" style="top:10%;left:10%">M</div>
-<div class="m" style="top:40%;right:10%">M</div>
-<div class="m" style="bottom:10%;left:25%">M</div>
+<!-- FLOATING M -->
+<div class="bg-m">M</div>
+<div class="bg-m">M</div>
+<div class="bg-m">M</div>
 
 <!-- HERO -->
 <div class="hero">
   <h1>MEDHANI SRI KURRA</h1>
-  <div class="tag">Aspiring Clinical Research Professional | Clinical Trials Enthusiast</div>
-
-  <div class="quote">
-    “Science improves lives when research is done with precision, ethics, and purpose.”
-  </div>
+  <p>Healthcare Enthusiast | Clinical Research Interest | Continuous Learner</p>
+  <p class="quote">“I believe progress is built quietly — one improvement at a time.”</p>
 </div>
 
 <!-- ABOUT -->
-<section>
-<h2>About Me</h2>
-<div class="card">
-I am a healthcare graduate with a strong interest in <b>Clinical Research and Clinical Trials</b>.
+<section class="fade">
+  <h2>About Me</h2>
+  <div class="box">
+    I am a dedicated and growth-focused individual who believes in learning through consistency, curiosity, and real-world experience.
+    My journey is shaped by a desire to understand how systems work, improve step by step, and build a meaningful professional path.
+    I enjoy structured thinking, problem-solving, and exploring ideas that challenge me to grow.
+  </div>
 
-My focus is on understanding how new medicines are tested, validated, and approved through structured clinical studies.
-
-I aim to build a career in:
-• Clinical Trial Operations  
-• Clinical Data Management  
-• Pharmacovigilance & Safety Monitoring  
-• Regulatory & Ethical Compliance  
-
-I am passionate about learning how patient data, research design, and scientific protocols come together to ensure safe and effective treatments.
-</div>
+  <div class="box">
+    I stay disciplined, adaptable, and focused on long-term improvement.
+    My mindset is to keep learning, keep improving, and keep moving forward regardless of challenges.
+  </div>
 </section>
 
-<!-- EDUCATION -->
-<section>
-<h2>Education</h2>
-
-<div class="card">
-<h3>Doctor of Pharmacy (PharmD)</h3>
-Vignan Pharmacy College, Guntur<br>
-78.3% | 2026
-</div>
-
-<div class="card">
-<h3>Intermediate (BIPC)</h3>
-Narayana Junior College, Vijayawada<br>
-889/1000 | 2019
-</div>
-
-<div class="card">
-<h3>Secondary Education</h3>
-Top Kids School, Guntur<br>
-83.6% | 2017
-</div>
+<!-- GOALS -->
+<section class="fade">
+  <h2>My Goals</h2>
+  <div class="box">
+    My goal is to build a strong career in clinical research, contributing to the development, management, and evaluation of clinical studies.
+    I aim to grow into roles involving clinical trial operations, structured research workflows, and evidence-based decision-making,
+    while continuously improving my understanding of real-world healthcare systems.
+  </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section>
-<h2>Clinical Exposure</h2>
-
-<div class="card">
-During hospital training, I gained exposure to real-world healthcare systems including:
-
-• Patient care workflow understanding  
-• Medical documentation practices  
-• Medication usage tracking  
-• Clinical observation and reporting  
-
-This experience strengthened my interest in clinical trials and research-driven healthcare systems.
-</div>
-</section>
-
-<!-- PROJECT -->
-<section>
-<h2>Academic Research Project</h2>
-
-<div class="card">
-<h3>Immunization & Public Health Study</h3>
-
-A structured research study evaluating immunization coverage and public health outcomes.
-
-Key outcomes:
-• 97% immunization coverage observed  
-• Significant reduction in preventable diseases  
-• Major challenge: accessibility barriers (69.71%)  
-• Data analysis performed using GraphPad Prism  
-
-This project enhanced my understanding of clinical data interpretation and research methodology.
-</div>
-</section>
-
-<!-- PUBLICATIONS -->
-<section>
-<h2>Research Publications</h2>
-
-<div class="card">
-<h3>Immunity for a Lifetime: Neonatal Immunization Impact</h3>
-International Journal of Science and Research Archive · Feb 2025<br>
-A study analyzing long-term immunity outcomes in vaccinated pediatric populations and its impact on disease prevention trends.
-</div>
-
-<div class="card">
-<h3>Diabetic Foot Ulcer: Prevention and Clinical Risk Factors</h3>
-Journal of Medical and Dental Science Research · Nov 2024<br>
-Review article focusing on early detection strategies, risk profiling, and prevention methods in diabetic patients.
-</div>
-
-<div class="card">
-<h3>Stevens-Johnson Syndrome: Antibiotic-Induced Case Study</h3>
-IOSR Journal of Dental and Medical Sciences · Oct 2024<br>
-Rare adverse drug reaction case report highlighting diagnosis, clinical progression, and pharmacological triggers.
-</div>
-</section>
-
-<!-- SKILLS -->
-<section>
-<h2>Core Skills</h2>
-
-<div class="card">
-• Clinical Trial Understanding  
-• Clinical Documentation  
-• Research Analysis  
-• Data Interpretation  
-• Communication Skills  
-• Critical Thinking  
-</div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section>
-<h2>Certifications</h2>
-
-<div class="card">
-• Good Clinical Practice (GCP)  
-• Pharmacogenomics Certification  
-• Data Management – Vanderbilt University  
-• Research Methods – IIT Kharagpur (NPTEL)  
-• AI Ethics in Healthcare – WHO  
-</div>
-</section>
-
-<!-- CAREER GOALS -->
-<section>
-<h2>Career Goals</h2>
-
-<div class="card">
-My goal is to build a strong career in <b>Clinical Research and Clinical Trials</b>.
-
-I aim to contribute to:
-
-• Clinical Trial Design & Monitoring  
-• Clinical Data Management Systems  
-• Pharmacovigilance & Safety Reporting  
-• Regulatory Compliance (ICH-GCP Standards)  
-
-Long-term, I aspire to contribute to global pharmaceutical research organizations (CROs) where ethical and high-quality clinical trials improve patient outcomes worldwide.
-
-<i>
-“I want to contribute to clinical research that ensures every treatment is safe, evidence-based, and scientifically validated.”
-</i>
-</div>
+<!-- MINDSET -->
+<section class="fade">
+  <h2>Mindset</h2>
+  <div class="box">
+    <ul>
+      <li>Learn consistently</li>
+      <li>Improve continuously</li>
+      <li>Stay disciplined</li>
+      <li>Think long-term</li>
+      <li>Build with purpose</li>
+    </ul>
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section>
-<h2>Contact</h2>
-
-<div class="card">
-📍 Guntur, Andhra Pradesh, India<br>
-📧 medhanisrik@gmail.com<br>
-📞 +91 7569005955<br>
-🔗 linkedin.com/in/medhani-sri-kurra<br><br>
-
-<i>Thank you for visiting my portfolio. I am open to opportunities in Clinical Research, Clinical Trials, and CRO-based roles.</i>
-</div>
+<section class="fade">
+  <h2>Contact</h2>
+  <div class="box">
+    📧 Email: medhanisrik@gmail.com <br>
+    📞 Phone: +91 XXXXX XXXXX <br>
+    📍 Location: Guntur, India <br>
+    🔗 LinkedIn: linkedin.com/in/medhani-sri-kurra
+  </div>
 </section>
 
+<!-- ANIMATION SCRIPT -->
 <script>
-gsap.utils.toArray("section").forEach(sec=>{
-  gsap.from(sec,{
-    scrollTrigger:sec,
-    opacity:0,
-    y:60,
-    duration:1
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".fade").forEach(el => {
+  gsap.to(el, {
+    scrollTrigger: el,
+    opacity: 1,
+    y: 0,
+    duration: 1
   });
 });
 </script>
