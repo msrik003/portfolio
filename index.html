@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medhani Sri Kurra | Clinical Research & Data Analytics Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <title>Medhani Sri Kurra | Premium Clinical Research Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-deep: #050816;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-blue: #3b82f6;
+            --bg-deep: #02040a;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --accent-blue: #2563eb;
             --accent-cyan: #06b6d4;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-hover: rgba(255, 255, 255, 0.07);
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.07);
+            --glass-hover: rgba(255, 255, 255, 0.05);
+            --card-glow: rgba(6, 182, 212, 0.12);
         }
 
         * {
@@ -32,9 +33,10 @@
             color: var(--text-main);
             overflow-x: hidden;
             position: relative;
+            letter-spacing: -0.01em;
         }
 
-        /* Canvas Particle Background */
+        /* High-End Ambient Kinetic Background */
         #bg-canvas {
             position: fixed;
             top: 0;
@@ -45,155 +47,177 @@
             pointer-events: none;
         }
 
-        /* Custom Scrollbar */
+        /* Custom Minimalist Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         ::-webkit-scrollbar-track {
             background: var(--bg-deep);
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
         }
         ::-webkit-scrollbar-thumb:hover {
             background: var(--accent-cyan);
         }
 
-        /* Sticky Navigation */
+        /* Sticky Premium Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(5, 8, 22, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(2, 4, 10, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
-            padding: 15px 40px;
+            padding: 20px 50px;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--text-main), var(--accent-cyan));
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
+            letter-spacing: 1px;
         }
 
         nav ul {
             display: flex;
-            gap: 30px;
+            gap: 35px;
             list-style: none;
         }
 
         nav a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            transition: color 0.3s, transform 0.3s;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         nav a:hover {
             color: var(--accent-cyan);
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
         }
 
-        /* Hero Section */
+        /* Hero Section Bold Refinements */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
+            padding: 100px 20px 40px 20px;
             position: relative;
+        }
+
+        .hero h2 {
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            letter-spacing: -1px;
+            font-size: 6rem; /* Enriched scaling footprint */
+            font-weight: 800;
+            letter-spacing: -0.03em;
             line-height: 1.1;
-            margin-bottom: 15px;
-            background: linear-gradient(to bottom, #ffffff, #94a3b8);
+            margin-bottom: 25px;
+            background: linear-gradient(to bottom, #ffffff 50%, #9ca3af 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero h2 {
-            font-size: 1.5rem;
-            color: var(--accent-cyan);
-            font-weight: 400;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+        .hero .intro-msg {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            max-width: 750px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-weight: 300;
         }
 
-        .hero p {
-            font-size: 1.1rem;
+        .hero .quote {
+            font-size: 1rem;
             color: var(--text-muted);
+            font-style: italic;
             max-width: 600px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            position: relative;
         }
 
         .cta-group {
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
         .btn {
-            padding: 12px 28px;
-            border-radius: 30px;
+            padding: 14px 35px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            cursor: pointer;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
             color: #fff;
-            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
+            box-shadow: 0 4px 25px rgba(6, 182, 212, 0.2);
+            border: none;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(6, 182, 212, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.45);
         }
 
         .btn-secondary {
             background: var(--glass-bg);
             color: var(--text-main);
             border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
-            background: var(--glass-hover);
-            border-color: var(--text-muted);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
         }
 
-        /* Global Section Layouts */
+        /* Global Layout & Headings */
         section {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: auto;
-            padding: 100px 20px;
+            padding: 120px 20px;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 50px;
             position: relative;
             display: inline-block;
         }
@@ -201,137 +225,159 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -10px;
             left: 0;
-            width: 50px;
-            height: 3px;
+            width: 40px;
+            height: 2px;
             background: linear-gradient(to right, var(--accent-blue), var(--accent-cyan));
-            border-radius: 2px;
         }
 
         .glass-box {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 40px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            border-radius: 24px;
+            padding: 45px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
 
-        /* Grid Layouts */
+        /* Premium Clickable Card Architecture */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 30px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 20px;
+            padding: 35px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            text-decoration: none; /* Allows entire card to be cleanly clickable */
+            color: inherit;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            background: var(--glass-hover);
-            border-color: rgba(6, 182, 212, 0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(6, 182, 212, 0.35);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px var(--card-glow);
         }
 
         .card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 12px;
             color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .card:hover h3 {
+            color: var(--accent-cyan);
         }
 
         .card p {
             color: var(--text-muted);
             font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
         }
 
         .card-meta {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--accent-cyan);
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
-        .verify-link {
+        .verify-link-btn {
             font-size: 0.85rem;
-            color: var(--accent-blue);
-            text-decoration: none;
+            color: #fff;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            margin-top: auto;
+            gap: 6px;
             font-weight: 500;
+            margin-top: auto;
+            transition: gap 0.3s ease, color 0.3s ease;
         }
 
-        .verify-link:hover {
+        .card:hover .verify-link-btn {
             color: var(--accent-cyan);
-            text-decoration: underline;
+            gap: 10px;
         }
 
-        /* Timeline Graphics */
+        /* Timeline Layout Elements */
         .timeline {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
             position: relative;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 20px;
-            top: 5px;
-            bottom: 5px;
-            width: 2px;
-            background: var(--glass-border);
+            left: 24px;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--glass-border), rgba(255,255,255,0.02));
         }
 
         .timeline-item {
             position: relative;
-            padding-left: 50px;
+            padding-left: 60px;
         }
 
         .timeline-dot {
             position: absolute;
-            left: 12px;
-            top: 6px;
-            width: 16px;
-            height: 16px;
+            left: 18px;
+            top: 26px;
+            width: 13px;
+            height: 13px;
             border-radius: 50%;
             background: var(--bg-deep);
-            border: 3px solid var(--accent-cyan);
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
             z-index: 2;
         }
 
         .timeline-content {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            padding: 20px 25px;
-            border-radius: 12px;
+            padding: 24px 30px;
+            border-radius: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            background: var(--glass-hover);
+            border-color: rgba(6, 182, 212, 0.25);
         }
 
         .timeline-info h3 {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             font-weight: 600;
+            margin-bottom: 4px;
+            color: #fff;
         }
 
         .timeline-info p {
@@ -343,129 +389,169 @@
             font-size: 0.85rem;
             color: var(--accent-cyan);
             font-weight: 500;
+            letter-spacing: 0.5px;
             white-space: nowrap;
         }
 
-        /* Skills Layout */
+        /* Skill Blocks Styling */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
         }
 
         .skills-box h3 {
-            font-size: 1.25rem;
-            margin-bottom: 20px;
-            color: var(--accent-cyan);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #fff;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+        }
+
+        .skills-box h3 i {
+            color: var(--accent-cyan);
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .tag {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--glass-border);
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 30px;
             font-size: 0.85rem;
             color: var(--text-main);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .tag:hover {
-            background: rgba(6, 182, 212, 0.1);
+            background: rgba(6, 182, 212, 0.08);
             border-color: var(--accent-cyan);
-            transform: scale(1.03);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(6, 182, 212, 0.1);
         }
 
-        /* Contact Section */
+        /* Contact Grid Structure */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 5px;
+            gap: 25px;
         }
 
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
         .contact-method {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            padding: 20px;
-            border-radius: 12px;
+            padding: 24px;
+            border-radius: 16px;
             text-decoration: none;
             color: var(--text-main);
-            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .contact-method:hover {
             background: var(--glass-hover);
             border-color: var(--accent-blue);
-            transform: translateX(5px);
+            transform: translateX(6px);
         }
 
         .contact-method i {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--accent-cyan);
-            width: 30px;
-            text-align: center;
+            background: rgba(6, 182, 212, 0.08);
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover i {
+            background: var(--accent-cyan);
+            color: var(--bg-deep);
         }
 
         .contact-method div p:first-child {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
         }
 
         .contact-method div p:last-child {
             font-weight: 500;
+            font-size: 0.95rem;
         }
 
-        /* Footer */
+        /* Modern Footer Layout */
         footer {
             border-top: 1px solid var(--glass-border);
             text-align: center;
-            padding: 60px 20px;
-            background: rgba(3, 5, 13, 0.9);
+            padding: 80px 20px;
+            background: rgba(2, 4, 10, 0.95);
+            backdrop-filter: blur(10px);
         }
 
         footer h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
         footer p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            max-width: 500px;
-            margin: 0 auto 20px auto;
+            font-size: 0.95rem;
+            max-width: 550px;
+            line-height: 1.6;
+            margin: 0 auto 30px auto;
         }
 
         footer .credits {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.2);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.15);
+            letter-spacing: 0.5px;
         }
 
-        /* Mobile Viewport Management */
+        /* Adaptive Breakpoints Management */
+        @media (max-width: 1200px) {
+            .hero h1 { font-size: 4.8rem; }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.8rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 20px; }
+            section { padding: 90px 20px; }
+        }
+
         @media (max-width: 768px) {
-            nav { padding: 15px 20px; }
-            nav ul { display: none; } /* Standard micro-portfolio practice */
-            .hero h1 { font-size: 3rem; }
-            section { padding: 60px 20px; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .timeline-content { flex-direction: column; align-items: flex-start; gap: 8px; }
+            nav { padding: 20px; }
+            nav ul { display: none; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero h2 { font-size: 0.95rem; letter-spacing: 2px; }
+            .hero .intro-msg { font-size: 1.05rem; }
+            .glass-box { padding: 30px; }
+            .timeline-content { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .timeline-date { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -489,63 +575,68 @@
     <section class="hero">
         <h2>MEDHANI SRI KURRA</h2>
         <h1>PharmD Graduate</h1>
-        <p>Clinical Research & Data Analytics Enthusiast. Driven by research accuracy, analytical clinical evaluation, and end-to-end evidence discovery workflows.</p>
+        <p class="intro-msg">Clinical Research & Data Analytics Enthusiast</p>
+        <p class="quote">"Driven by research accuracy, analytical clinical evaluation, and end-to-end evidence discovery workflows."</p>
         <div class="cta-group">
-            <a href="#contact" class="btn btn-primary"><i class="fa-solid deterioration fa-envelope"></i> Connect</a>
+            <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Connect Direct</a>
             <a href="#research" class="btn btn-secondary">View Thesis</a>
         </div>
     </section>
 
     <section id="about">
         <h2 class="section-title">Professional Profile</h2>
-        <div class="glass-box" style="line-height: 1.7; font-size: 1.05rem; color: var(--text-muted);">
-            <p style="margin-bottom: 15px;"><strong style="color: #fff;">Doctor of Pharmacy (PharmD)</strong> graduate actively pivoting toward specialized enterprise roles in clinical trials execution, data compliance operations, and structured safety signal assessments.</p>
-            <p>Equipped with specialized hospital experiential framework spanning adverse drug interaction tracing, structured e-health infrastructure logging, and advanced computational metric extraction utilizing specialized analytical frameworks.</p>
+        <div class="glass-box" style="line-height: 1.8; font-size: 1.05rem; color: var(--text-muted);">
+            <p style="margin-bottom: 20px;"><strong style="color: #fff;">Doctor of Pharmacy (PharmD)</strong> graduate actively pivoting toward specialized roles in clinical trials execution, data compliance operations, and structured safety signal assessments[cite: 7].</p>
+            <p>Equipped with a solid clinical foundation built through an intensive hospital residency at Aster Ramesh Hospitals, alongside verified expertise in adverse drug reaction tracking, electronic medical data capture systems, and GCP-compliant research architectures.</p>
         </div>
     </section>
 
     <section id="certifications">
-        <h2 class="section-title">Valid Certifications</h2>
+        <h2 class="section-title">Verified Certifications</h2>
         <div class="grid">
+            <a href="https://coursera.org/verify/KKU3HZYCGHT9" target="_blank" class="card">
+                <div>
+                    <div class="card-meta"><i class="fa-solid fa-database"></i> Vanderbilt University</div>
+                    <h3>Data Management for Clinical Research</h3>
+                    <p>Electronic data capture (EDC) infrastructure design, REDCap database utilization, compliant case report form (CRF) creation, and data validation methodologies[cite: 82, 83].</p>
+                </div>
+                <div class="verify-link-btn">Verify via Coursera <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+            </a>
+
+            <a href="https://openwho.org/verify/ximin-luzaz-lefob-ryter-dyhan" target="_blank" class="card">
+                <div>
+                    <div class="card-meta"><i class="fa-solid fa-earth-americas"></i> World Health Organization</div>
+                    <h3>Ethics & Governance of AI for Health</h3>
+                    <p>International regulatory oversight frameworks, fundamental transparency conditions, algorithmic bias management, and safety verification logic in healthcare AI deployments[cite: 3].</p>
+                </div>
+                <div class="verify-link-btn">Verify via OpenWHO <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+            </a>
+
             <div class="card">
                 <div>
                     <div class="card-meta"><i class="fa-solid fa-shield-halved"></i> NIDA Clinical Trials Network</div>
                     <h3>Good Clinical Practice (GCP)</h3>
-                    <p>6-hour intensive qualification tracking clinical site compliance, data documentation protocols, investigator regulatory obligations, and baseline human subject protection parameters.</p>
+                    <p>6-hour intensive qualification covering clinical site compliance, data documentation protocols, investigator regulatory obligations, and human subject protections[cite: 42, 43].</p>
                 </div>
-                <span class="verify-link">Valid until Mar 2029</span>
+                <div class="verify-link-btn" style="color: var(--accent-cyan);">Valid through Mar 2029 [cite: 70]</div>
             </div>
-            <div class="card">
-                <div>
-                    <div class="card-meta"><i class="fa-solid fa-database"></i> Vanderbilt University</div>
-                    <h3>Data Management for Clinical Research</h3>
-                    <p>Electronic data capture infrastructure deployment, compliant case report building patterns, study setup mechanics, and automated programmatic optimization criteria via Coursera.</p>
-                </div>
-                <a href="https://coursera.org/verify/KKU3HZYCGHT9" target="_blank" class="verify-link">Verify Credentials <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
+
             <div class="card">
                 <div>
                     <div class="card-meta"><i class="fa-solid fa-graduation-cap"></i> IIT Kharagpur / NPTEL</div>
                     <h3>Research Methods in Health Promotion</h3>
-                    <p>Advanced study design setups, structured tracking patterns, qualitative/quantitative metrics extraction logic, and statistical parsing mechanics. Elite + Silver tier status.</p>
+                    <p>Advanced study design setups, qualitative and quantitative health metrics selection, population profiling models, and statistical data parsing[cite: 23, 27].</p>
                 </div>
-                <span class="verify-link">Consolidated Score: 86%</span>
+                <div class="verify-link-btn" style="color: var(--accent-cyan);">Elite + Silver (Score: 86%) [cite: 17, 24]</div>
             </div>
-            <div class="card">
-                <div>
-                    <div class="card-meta"><i class="fa-solid fa-earth-americas"></i> World Health Organization</div>
-                    <h3>Ethics & Governance of AI for Health</h3>
-                    <p>Regulatory frameworks oversight, fundamental transparency conditions, automated algorithm ethics monitoring parameters, and computational safety verification limits.</p>
-                </div>
-                <a href="https://openwho.org/verify/ximin-luzaz-lefob-ryter-dyhan" target="_blank" class="verify-link">Verify Credentials <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
+
             <div class="card">
                 <div>
                     <div class="card-meta"><i class="fa-solid fa-brain"></i> Stanford Medicine</div>
                     <h3>Early Signs of Psychosis in Adolescents</h3>
-                    <p>Certified continuing medical education detailing early stage clinical detection markers, behavioral patterns tracking, and prompt early-intervention paradigm deployments.</p>
+                    <p>Continuing medical education activity detailing early stage behavioral tracking, objective screening indicators, and prompt intervention clinical workflows[cite: 8].</p>
                 </div>
-                <span class="verify-link">2.00 AMA PRA Cat 1 Credits™</span>
+                <div class="verify-link-btn" style="color: var(--accent-cyan);">2.00 AMA PRA Cat 1 Credits™ [cite: 11]</div>
             </div>
         </div>
     </section>
@@ -553,8 +644,242 @@
     <section id="publications">
         <h2 class="section-title">Peer-Reviewed Literature</h2>
         <div class="grid">
-            <div class="card">
+            <a href="https://www.ijsar.com" target="_blank" class="card">
                 <div>
                     <div class="card-meta">International Journal of Science & Research Archive</div>
                     <h3>Immunity for a Lifetime: Unravelling Neonatal Immunization Impact</h3>
-                    <p>A rigorous investigation mapping longitudinal community health metrics and protection validation
+                    <p>A rigorous investigation mapping longitudinal community health metrics, public health delivery logistics, and immunity validation tracking arrays across pediatric subgroups.</p>
+                </div>
+                <div class="verify-link-btn">Open Journal Article <i class="fa-solid fa-file-pdf"></i></div>
+            </a>
+
+            <a href="https://www.jmadsr.com" target="_blank" class="card">
+                <div>
+                    <div class="card-meta">Journal of Medical & Dental Science Research</div>
+                    <h3>Walking On Thin Ice: Preventing Diabetic Foot Ulcers</h3>
+                    <p>Strategic early clinical evaluation methodologies detailing risk assessment models, peripheral neuropathy indicators, and preventative care tracking guidelines.</p>
+                </div>
+                <div class="verify-link-btn">Open Journal Article <i class="fa-solid fa-file-pdf"></i></div>
+            </a>
+
+            <a href="https://www.iosrjournals.org" target="_blank" class="card">
+                <div>
+                    <div class="card-meta">IOSR Journal of Dental & Medical Sciences</div>
+                    <h3>Case Report: Stevens-Johnson Syndrome Induced By Antibiotics</h3>
+                    <p>Critical clinical toxicological evaluation mapping medication risk patterns, complex cross-departmental critical care tracking, and drug safety reporting logic.</p>
+                </div>
+                <div class="verify-link-btn">Open Journal Article <i class="fa-solid fa-file-pdf"></i></div>
+            </a>
+        </div>
+    </section>
+
+    <section id="research">
+        <h2 class="section-title">Core Thesis Investigation</h2>
+        <div class="glass-box">
+            <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #fff;">Long-Term Impact of Immunization on Disease Prevention and Community Health</h3>
+            <p style="color: var(--text-muted); margin-bottom: 25px; line-height: 1.7;">Executed a comprehensive 6-month retrospective cross-sectional clinical tracking investigation encompassing a data sample array of 1,156 individual participants using WHO-validated structured diagnostic instruments. Parsed population compliance values and evaluated clinical protection outcomes with GraphPad Prism.</p>
+            
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                <div style="background: rgba(255,255,255,0.01); padding: 25px; border-radius: 16px; border: 1px solid var(--glass-border);">
+                    <h4 style="color: var(--accent-cyan); font-size: 1.8rem; margin-bottom: 5px; font-family: 'Playfair Display', serif;">1,156</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Enrolled Profile Records Monitored</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.01); padding: 25px; border-radius: 16px; border: 1px solid var(--glass-border);">
+                    <h4 style="color: var(--accent-cyan); font-size: 1.8rem; margin-bottom: 5px; font-family: 'Playfair Display', serif;">97%</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Baseline Infant Protection Coverage</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.01); padding: 25px; border-radius: 16px; border: 1px solid var(--glass-border);">
+                    <h4 style="color: var(--accent-cyan); font-size: 1.8rem; margin-bottom: 5px; font-family: 'Playfair Display', serif;">69.71%</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Missed Doses Attributed to Logistics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Skill Architecture</h2>
+        <div class="skills-container">
+            <div class="skills-box">
+                <h3><i class="fa-solid fa-vial-circle-check"></i> Clinical Trial Operations</h3>
+                <div class="skill-tags">
+                    <span class="tag">Clinical Data Capture</span>
+                    <span class="tag">ICH-GCP Guidelines</span>
+                    <span class="tag">ADR Reporting Matrix</span>
+                    <span class="tag">Pharmacovigilance Frameworks</span>
+                    <span class="tag">Informed Consent Forms (ICFs)</span>
+                    <span class="tag">Case Report Forms (CRFs)</span>
+                </div>
+            </div>
+            <div class="skills-box">
+                <h3><i class="fa-solid fa-chart-network"></i> Systems & Data Processing</h3>
+                <div class="skill-tags">
+                    <span class="tag">REDCap Management</span>
+                    <span class="tag">GraphPad Prism Analytics</span>
+                    <span class="tag">EMR Interface Navigation</span>
+                    <span class="tag">Statistical Inference Mapping</span>
+                    <span class="tag">Data Verification & Cleaning</span>
+                    <span class="tag">Microsoft Excel Advanced</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <h2 class="section-title">Awards & Scientific Presence</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-info">
+                        <h3>e-Poster Presentation Prize Winner</h3>
+                        <p>5th National Pharmacovigilance Week, Guntur Medical College</p>
+                    </div>
+                    <div class="timeline-date">Sep 2025</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-info">
+                        <h3>2nd Place – Patient Counselling Excellence</h3>
+                        <p>National Pharmacy Week Competition</p>
+                    </div>
+                    <div class="timeline-date">Nov 2024</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-info">
+                        <h3>2nd Place – Case Presentation Championship</h3>
+                        <p>Pharma Vision 2024, VFSTR Deemed University</p>
+                    </div>
+                    <div class="timeline-date">Mar 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <a href="mailto:medhanisrik@gmail.com" class="contact-method">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <p>Secure Direct Email</p>
+                        <p>medhanisrik@gmail.com</p>
+                    </div>
+                </a>
+                <a href="https://linkedin.com/in/medhani-sri-kurra" target="_blank" class="contact-method">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <div>
+                        <p>Professional Network</p>
+                        <p>linkedin.com/in/medhani-sri-kurra</p>
+                    </div>
+                </a>
+            </div>
+            <div class="contact-info">
+                <a href="tel:+917569005955" class="contact-method">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <p>Primary Connection Line</p>
+                        <p>+91 75690 05955</p>
+                    </div>
+                </a>
+                <div class="contact-method">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <p>Geographic Location Base</p>
+                        <p>Guntur, Andhra Pradesh, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Let's Drive Healthcare Innovation.</h2>
+        <p>Open to collaborative clinical operations, global trials infrastructure, and analytics deployment tracks.</p>
+        <p class="credits">&copy; 2026 Medhani Sri Kurra. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let points = [];
+        const baseColors = ['rgba(59, 130, 246, 0.1)', 'rgba(6, 182, 212, 0.1)'];
+
+        function adjustDimensions() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class ClusterNode {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.radius = Math.random() * 2 + 1;
+                this.mx = Math.random() * 0.3 - 0.15;
+                this.my = Math.random() * 0.3 - 0.15;
+                this.color = baseColors[Math.floor(Math.random() * baseColors.length)];
+            }
+
+            step() {
+                this.x += this.mx;
+                this.y += this.my;
+
+                if (this.x < 0 || this.x > canvas.width) this.mx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.my *= -1;
+            }
+
+            render() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function createSystem() {
+            adjustDimensions();
+            points = [];
+            const totalNodes = Math.min(60, window.innerWidth / 20);
+            for (let i = 0; i < totalNodes; i++) {
+                points.push(new ClusterNode());
+            }
+        }
+
+        function clearAndDraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Generate ambient constellation node-lines
+            for (let i = 0; i < points.length; i++) {
+                points[i].step();
+                points[i].render();
+
+                for (let j = i + 1; j < points.length; j++) {
+                    const dx = points[i].x - points[j].x;
+                    const dy = points[i].y - points[j].y;
+                    const gap = Math.sqrt(dx * dx + dy * dy);
+
+                    if (gap < 110) {
+                        ctx.strokeStyle = `rgba(6, 182, 212, ${0.08 * (1 - gap / 110)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(points[i].x, points[i].y);
+                        ctx.lineTo(points[j].x, points[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(clearAndDraw);
+        }
+
+        window.addEventListener('resize', createSystem);
+        createSystem();
+        clearAndDraw();
+    </script>
+</body>
+</html>
