@@ -16,6 +16,7 @@ body {
   scroll-behavior: smooth;
 }
 
+/* existing glow */
 .glow {
   position: absolute;
   width: 600px;
@@ -31,16 +32,57 @@ body {
   50% { transform: translateY(40px); }
 }
 
+/* glass */
 .glass {
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 20px;
 }
+
+/* ⭐ NEW: QUOTE */
+.quote {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #a5b4fc;
+  font-style: italic;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ⭐ NEW: FLOATING M BACKGROUND */
+.bg-m, .bg-m2, .bg-m3 {
+  position: absolute;
+  font-size: 200px;
+  font-weight: 900;
+  color: rgba(99,102,241,0.08);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatM 10s infinite ease-in-out;
+}
+
+.bg-m { top: 10%; left: 5%; }
+.bg-m2 { top: 40%; right: 10%; animation-delay: 2s; }
+.bg-m3 { bottom: 10%; left: 30%; animation-delay: 4s; }
+
+@keyframes floatM {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-40px); }
+  100% { transform: translateY(0px); }
+}
 </style>
 </head>
 
 <body>
+
+<!-- ⭐ NEW FLOATING M BACKGROUND -->
+<div class="bg-m">M</div>
+<div class="bg-m2">M</div>
+<div class="bg-m3">M</div>
 
 <div class="glow top-10 left-10"></div>
 <div class="glow bottom-10 right-10"></div>
@@ -52,6 +94,11 @@ body {
 
   <p class="mt-4 text-lg text-gray-300">
     PharmD Graduate | Clinical Research | Pharmacovigilance | Clinical Data Management
+  </p>
+
+  <!-- ⭐ NEW QUOTE -->
+  <p class="quote">
+    “Every challenge in healthcare is a chance to improve a life.”
   </p>
 
   <p class="mt-6 text-cyan-300 text-xl">
@@ -113,13 +160,7 @@ body {
     <b>PharmD Intern – Aster Ramesh Hospitals, Guntur</b><br><br>
 
     During my hospital internship, I worked closely with physicians, nurses, and clinical pharmacists
-    across multiple departments to support patient care and clinical documentation workflows.<br><br>
-
-    ✔ Monitored and documented Adverse Drug Reactions (ADR) for pharmacovigilance reporting<br>
-    ✔ Assisted in medication therapy management and patient counseling<br>
-    ✔ Supported clinical data entry and EMR documentation accuracy<br>
-    ✔ Participated in ward rounds and interdisciplinary healthcare discussions<br>
-    ✔ Contributed to patient safety and medication adherence monitoring
+    across multiple departments to support patient care and clinical documentation workflows.
   </p>
 </section>
 
@@ -128,45 +169,14 @@ body {
   <h2 class="text-3xl font-bold mb-6">Research Project (Thesis Work)</h2>
 
   <div class="glass p-8">
-
     <h3 class="text-xl font-semibold text-cyan-300">
       Long-Term Impact of Immunization on Disease Prevention & Community Health
     </h3>
 
     <p class="text-gray-300 mt-4 leading-relaxed">
-
-      This research project was conducted as part of my PharmD academic thesis.
-      It was designed as a <b>retrospective cross-sectional study</b> analyzing immunization
-      coverage and its long-term effects on pediatric health outcomes.<br><br>
-
-      ✔ Study Population: 1,156 participants<br>
-      ✔ Data Source: WHO-validated questionnaires<br>
-      ✔ Methodology: Cross-sectional retrospective analysis<br>
-      ✔ Tool Used: GraphPad Prism for statistical evaluation<br><br>
-
-      <b>Key Findings:</b><br>
-      • 97% infant immunization coverage rate observed<br>
-      • Strong correlation between immunization compliance and reduced disease incidence<br>
-      • Major barrier identified: logistical access issues (69.71%)<br><br>
-
-      <b>Outcome:</b><br>
-      The study highlights the importance of strengthening immunization accessibility programs
-      to improve long-term public health outcomes and reduce preventable diseases.
+      Retrospective study on 1,156 participants using WHO dataset with GraphPad Prism analysis.
     </p>
   </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section class="py-20 px-6 max-w-6xl mx-auto glass p-10">
-  <h2 class="text-3xl font-bold mb-6">Certifications</h2>
-
-  <p class="text-gray-300 leading-relaxed">
-    ✔ Good Clinical Practice (GCP) – NIDA Clinical Trials Network<br>
-    ✔ Pharmacogenomics & Personalized Medicine – CliMed Academy<br>
-    ✔ Research Methods in Health Promotion – NPTEL IIT Kharagpur<br>
-    ✔ Data Management for Clinical Research – Vanderbilt University<br>
-    ✔ Ethics & Governance of AI in Healthcare – WHO OpenWHO
-  </p>
 </section>
 
 <!-- CONTACT -->
@@ -178,7 +188,7 @@ body {
 
     <p>📍 Location: Guntur, Andhra Pradesh, India</p>
     <p>📧 Email: medhanisrik@gmail.com</p>
-    <p>📞 Phone: +91 7569005955 / +91 8179940069</p>
+    <p>📞 Phone: +91 7569005955</p>
     <p>🔗 LinkedIn: linkedin.com/in/medhani-sri-kurra</p>
 
   </div>
