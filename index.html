@@ -1,69 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Medhani Sri Kurra | Clinical Research Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
-body {
-  margin: 0;
-  background: #050816;
-  color: white;
-  font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
+body{
+  margin:0;
+  background:#050816;
+  color:white;
+  font-family:"Poppins",sans-serif;
+  overflow-x:hidden;
 }
 
 /* INTRO */
-.intro {
-  position: fixed;
-  inset: 0;
-  background: #050816;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  animation: fadeOut 2.5s ease forwards;
-  animation-delay: 2.2s;
+.intro{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#050816;
+  z-index:9999;
+  animation:fadeOut 2.5s ease forwards;
+  animation-delay:2.2s;
 }
 
-.intro-name {
-  font-size: 120px;
-  font-family: "Playfair Display", serif;
-  font-style: italic;
-  font-weight: 700;
-  background: linear-gradient(90deg,#fff,#93c5fd);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rise 1.2s ease forwards;
-  opacity: 0;
-  transform: translateY(40px);
+.intro-name{
+  font-size:95px;
+  font-family:"Playfair Display",serif;
+  font-style:italic;
+  background:linear-gradient(90deg,#fff,#93c5fd);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  opacity:0;
+  transform:translateY(40px);
+  animation:rise 1.2s ease forwards;
 }
 
-.intro-sub {
-  margin-top: 10px;
-  text-align: center;
-  color: #93c5fd;
-  font-style: italic;
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 0.8s;
-  opacity: 0;
+.intro-sub{
+  text-align:center;
+  margin-top:10px;
+  color:#93c5fd;
+  opacity:0;
+  animation:fadeIn 1.5s ease forwards;
+  animation-delay:.8s;
 }
 
-@keyframes rise { to { opacity:1; transform:translateY(0);} }
-@keyframes fadeIn { to { opacity:1; } }
-@keyframes fadeOut { to { opacity:0; visibility:hidden; } }
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes fadeOut{to{opacity:0;visibility:hidden}}
+
+/* floating M */
+.m{
+  position:absolute;
+  font-size:200px;
+  font-weight:900;
+  color:rgba(147,197,253,0.05);
+  animation:float 10s infinite ease-in-out;
+}
+
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-50px)}
+  100%{transform:translateY(0)}
+}
 
 /* HERO */
-.hero {
-  min-height: 100vh;
+.hero{
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -72,59 +85,53 @@ body {
   padding:20px;
 }
 
-.hero-name {
-  font-size: 86px;
-  font-family: "Playfair Display", serif;
-  font-weight: 800;
-  background: linear-gradient(90deg,#ffffff,#93c5fd);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.hero h1{
+  font-size:72px;
+  font-family:"Playfair Display",serif;
+  background:linear-gradient(90deg,#fff,#93c5fd);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.hero-title {
-  margin-top: 10px;
-  font-size: 18px;
-  color: #cbd5e1;
+.tag{
+  margin-top:10px;
+  color:#cbd5e1;
 }
 
-.quote {
-  margin-top: 20px;
-  font-style: italic;
-  color: #a5b4fc;
+.quote{
+  margin-top:20px;
+  font-style:italic;
+  color:#a5b4fc;
 }
 
-/* SECTION */
-section {
-  padding: 90px 20px;
-  max-width: 1050px;
-  margin: auto;
-  opacity: 0;
-  transform: translateY(60px);
+/* sections */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:70px 20px;
 }
 
-h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 32px;
-  color: #38bdf8;
-  margin-bottom: 15px;
+/* cards */
+.card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:22px;
+  border-radius:16px;
+  margin-top:15px;
+  backdrop-filter:blur(12px);
+  line-height:1.8;
 }
 
-/* CARD */
-.card {
-  background: rgba(255,255,255,0.06);
-  padding: 26px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
-  margin-top: 15px;
-  line-height: 1.8;
+/* headings */
+h2{
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  color:#38bdf8;
+  margin-bottom:10px;
 }
 
-/* GRID */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
+h3{
+  color:#93c5fd;
 }
 </style>
 </head>
@@ -135,97 +142,98 @@ h2 {
 <div class="intro">
   <div>
     <div class="intro-name">MSK</div>
-    <div class="intro-sub">PharmD • Clinical Research • Pharmacovigilance</div>
+    <div class="intro-sub">Clinical Trials • Clinical Research • Healthcare Science</div>
   </div>
 </div>
+
+<!-- floating background -->
+<div class="m" style="top:10%;left:10%">M</div>
+<div class="m" style="top:40%;right:10%">M</div>
+<div class="m" style="bottom:10%;left:25%">M</div>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-name">MEDHANI SRI KURRA</div>
-  <div class="hero-title">
-    PharmD Graduate | Clinical Research | Pharmacovigilance | Clinical Data Management
-  </div>
+  <h1>MEDHANI SRI KURRA</h1>
+  <div class="tag">Aspiring Clinical Research Professional | Clinical Trials Enthusiast</div>
+
   <div class="quote">
-    “Driven by curiosity, guided by evidence, committed to patient safety.”
+    “Science improves lives when research is done with precision, ethics, and purpose.”
   </div>
 </div>
 
-<!-- PROFILE -->
+<!-- ABOUT -->
 <section>
-<h2>Professional Profile</h2>
+<h2>About Me</h2>
 <div class="card">
-I am a PharmD graduate with a strong academic and practical foundation in clinical research, pharmacovigilance, and healthcare data management. My training has been shaped through hospital-based clinical exposure, structured academic research, and hands-on participation in patient care environments.
+I am a healthcare graduate with a strong interest in <b>Clinical Research and Clinical Trials</b>.
 
-I have developed strong competencies in clinical documentation, adverse drug reaction (ADR) monitoring, regulatory compliance (GCP & ICH guidelines), and clinical data systems such as EMR and REDCap.
+My focus is on understanding how new medicines are tested, validated, and approved through structured clinical studies.
 
-My objective is to contribute meaningfully to global clinical research organizations, pharmaceutical companies, and healthcare innovation systems where data-driven decisions improve patient outcomes and drug safety.
+I aim to build a career in:
+• Clinical Trial Operations  
+• Clinical Data Management  
+• Pharmacovigilance & Safety Monitoring  
+• Regulatory & Ethical Compliance  
+
+I am passionate about learning how patient data, research design, and scientific protocols come together to ensure safe and effective treatments.
 </div>
 </section>
 
 <!-- EDUCATION -->
 <section>
-<h2>Academic Background</h2>
+<h2>Education</h2>
 
 <div class="card">
-<b>Doctor of Pharmacy (PharmD)</b><br>
+<h3>Doctor of Pharmacy (PharmD)</h3>
 Vignan Pharmacy College, Guntur<br>
-2020 – 2026 | Aggregate: 78.3%
+78.3% | 2026
 </div>
 
 <div class="card">
-<b>Intermediate (BIPC)</b><br>
+<h3>Intermediate (BIPC)</h3>
 Narayana Junior College, Vijayawada<br>
-2019 | Score: 889/1000
+889/1000 | 2019
 </div>
 
 <div class="card">
-<b>Secondary Education</b><br>
-Top Kids Senior Secondary School, Guntur<br>
-2017 | 83.6%
-</div>
-</section>
-
-<!-- INTERNSHIP -->
-<section>
-<h2>Clinical Internship Experience</h2>
-
-<div class="card">
-<b>Aster Ramesh Hospitals, Guntur</b><br><br>
-
-During my PharmD internship, I was actively involved in multidisciplinary clinical operations that strengthened my understanding of real-world healthcare delivery systems.
-
-<br><br><b>Key Responsibilities:</b><br>
-• Participation in ward rounds and clinical case discussions<br>
-• Monitoring and reporting Adverse Drug Reactions (ADR)<br>
-• Supporting pharmacovigilance documentation and drug safety reporting<br>
-• Patient counseling on medication adherence and therapy optimization<br>
-• Assisting in EMR documentation and clinical data entry<br>
-• Contributing to patient safety awareness and healthcare education programs
+<h3>Secondary Education</h3>
+Top Kids School, Guntur<br>
+83.6% | 2017
 </div>
 </section>
 
-<!-- RESEARCH -->
+<!-- EXPERIENCE -->
 <section>
-<h2>Academic Research & Thesis Work</h2>
+<h2>Clinical Exposure</h2>
 
 <div class="card">
-<b>Title:</b> Long-Term Impact of Immunization on Disease Prevention and Community Health<br><br>
+During hospital training, I gained exposure to real-world healthcare systems including:
 
-This research was conducted as a retrospective cross-sectional study involving 1,156 participants using WHO-validated datasets and structured questionnaires.
+• Patient care workflow understanding  
+• Medical documentation practices  
+• Medication usage tracking  
+• Clinical observation and reporting  
 
-<br><br><b>Methodology:</b><br>
-• Study Design: Retrospective Cross-Sectional Analysis<br>
-• Sample Size: 1,156 participants<br>
-• Tools: GraphPad Prism for statistical analysis<br>
-• Data Source: WHO-validated survey instruments<br><br>
+This experience strengthened my interest in clinical trials and research-driven healthcare systems.
+</div>
+</section>
 
-<b>Key Findings:</b><br>
-• 97% immunization coverage observed among participants<br>
-• Significant reduction in preventable disease incidence in vaccinated populations<br>
-• Major barrier identified: accessibility constraints (69.71%)<br><br>
+<!-- PROJECT -->
+<section>
+<h2>Academic Research Project</h2>
 
-<b>Conclusion:</b><br>
-The study highlights the critical role of structured immunization programs in improving long-term public health outcomes and reducing preventable disease burden.
+<div class="card">
+<h3>Immunization & Public Health Study</h3>
+
+A structured research study evaluating immunization coverage and public health outcomes.
+
+Key outcomes:
+• 97% immunization coverage observed  
+• Significant reduction in preventable diseases  
+• Major challenge: accessibility barriers (69.71%)  
+• Data analysis performed using GraphPad Prism  
+
+This project enhanced my understanding of clinical data interpretation and research methodology.
 </div>
 </section>
 
@@ -234,81 +242,94 @@ The study highlights the critical role of structured immunization programs in im
 <h2>Research Publications</h2>
 
 <div class="card">
-• Immunity for a Lifetime: Long-term impact of neonatal immunization – IJ Science & Research Archive (2025)<br><br>
-• Understanding Diabetic Foot Ulcers: Prevention and Management – Journal of Medical & Dental Sciences (2024)<br><br>
-• Antibiotic-Induced Stevens-Johnson Syndrome: Case Report – IOSR Journal (2024)
+<h3>Immunity for a Lifetime: Neonatal Immunization Impact</h3>
+International Journal of Science and Research Archive · Feb 2025<br>
+A study analyzing long-term immunity outcomes in vaccinated pediatric populations and its impact on disease prevention trends.
+</div>
+
+<div class="card">
+<h3>Diabetic Foot Ulcer: Prevention and Clinical Risk Factors</h3>
+Journal of Medical and Dental Science Research · Nov 2024<br>
+Review article focusing on early detection strategies, risk profiling, and prevention methods in diabetic patients.
+</div>
+
+<div class="card">
+<h3>Stevens-Johnson Syndrome: Antibiotic-Induced Case Study</h3>
+IOSR Journal of Dental and Medical Sciences · Oct 2024<br>
+Rare adverse drug reaction case report highlighting diagnosis, clinical progression, and pharmacological triggers.
 </div>
 </section>
 
 <!-- SKILLS -->
 <section>
-<h2>Core Competencies</h2>
+<h2>Core Skills</h2>
 
-<div class="grid">
-<div class="card">Clinical Data Management</div>
-<div class="card">Pharmacovigilance</div>
-<div class="card">ADR Reporting</div>
-<div class="card">EMR / REDCap Systems</div>
-<div class="card">GCP & ICH Compliance</div>
-<div class="card">Clinical Documentation</div>
-<div class="card">GraphPad Prism</div>
-<div class="card">Patient Counseling</div>
+<div class="card">
+• Clinical Trial Understanding  
+• Clinical Documentation  
+• Research Analysis  
+• Data Interpretation  
+• Communication Skills  
+• Critical Thinking  
 </div>
 </section>
 
 <!-- CERTIFICATIONS -->
 <section>
-<h2>Certifications & Training</h2>
+<h2>Certifications</h2>
 
 <div class="card">
-• Good Clinical Practice (GCP) – NIDA Clinical Trials Network<br>
-• Pharmacogenomics & Personalized Medicine – CliMed Academy<br>
-• Research Methods in Health Promotion – IIT Kharagpur (NPTEL)<br>
-• Data Management for Clinical Research – Vanderbilt University<br>
-• Ethics & AI in Healthcare – WHO OpenWHO Program
+• Good Clinical Practice (GCP)  
+• Pharmacogenomics Certification  
+• Data Management – Vanderbilt University  
+• Research Methods – IIT Kharagpur (NPTEL)  
+• AI Ethics in Healthcare – WHO  
 </div>
 </section>
 
-<!-- AWARDS -->
+<!-- CAREER GOALS -->
 <section>
-<h2>Awards & Achievements</h2>
+<h2>Career Goals</h2>
 
 <div class="card">
-• e-Poster Presentation Winner – National Pharmacovigilance Week<br>
-• 2nd Place – Patient Counseling Competition<br>
-• 2nd Place – Case Presentation (Pharma Vision 2024)
-</div>
-</section>
+My goal is to build a strong career in <b>Clinical Research and Clinical Trials</b>.
 
-<!-- VOLUNTEER -->
-<section>
-<h2>Volunteer Experience</h2>
+I aim to contribute to:
 
-<div class="card">
-<b>Make A Difference (NGO)</b><br>
-Mentored underprivileged students, contributed to structured learning programs, and supported educational development initiatives focusing on communication and academic growth.
+• Clinical Trial Design & Monitoring  
+• Clinical Data Management Systems  
+• Pharmacovigilance & Safety Reporting  
+• Regulatory Compliance (ICH-GCP Standards)  
+
+Long-term, I aspire to contribute to global pharmaceutical research organizations (CROs) where ethical and high-quality clinical trials improve patient outcomes worldwide.
+
+<i>
+“I want to contribute to clinical research that ensures every treatment is safe, evidence-based, and scientifically validated.”
+</i>
 </div>
 </section>
 
 <!-- CONTACT -->
 <section>
-<h2>Contact Information</h2>
+<h2>Contact</h2>
 
 <div class="card">
-<b>Location:</b> Guntur, Andhra Pradesh, India<br>
-<b>Email:</b> medhanisrik@gmail.com<br>
-<b>Phone:</b> +91 7569005955 / 8179940069<br>
-<b>LinkedIn:</b> linkedin.com/in/medhani-sri-kurra
+📍 Guntur, Andhra Pradesh, India<br>
+📧 medhanisrik@gmail.com<br>
+📞 +91 7569005955<br>
+🔗 linkedin.com/in/medhani-sri-kurra<br><br>
+
+<i>Thank you for visiting my portfolio. I am open to opportunities in Clinical Research, Clinical Trials, and CRO-based roles.</i>
 </div>
 </section>
 
 <script>
-gsap.utils.toArray("section").forEach(sec => {
-  gsap.to(sec, {
-    scrollTrigger: sec,
-    opacity: 1,
-    y: 0,
-    duration: 1
+gsap.utils.toArray("section").forEach(sec=>{
+  gsap.from(sec,{
+    scrollTrigger:sec,
+    opacity:0,
+    y:60,
+    duration:1
   });
 });
 </script>
