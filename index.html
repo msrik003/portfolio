@@ -1,246 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medhani Sri Kurra | Clinical Research & Data Analytics Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-deep: #050816;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-hover: rgba(255, 255, 255, 0.07);
+        }
 
-<title>Medhani Sri Kurra | Portfolio</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            overflow-x: hidden;
+            position: relative;
+        }
 
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        /* Canvas Particle Background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
 
-<style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-deep);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-cyan);
+        }
 
-body {
-  margin: 0;
-  background: #050816;
-  color: white;
-  font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
-}
+        /* Sticky Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 8, 22, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 15px 40px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
 
-/* ================= INTRO ================= */
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--text-main), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
 
-.intro {
-  position: fixed;
-  inset: 0;
-  background: #050816;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  animation: fadeOut 2.5s ease forwards;
-  animation-delay: 2.2s;
-}
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
 
-.intro-name {
-  font-size: 80px;
-  font-family: "Playfair Display";
-  letter-spacing: 5px;
-  opacity: 0;
-  transform: translateY(40px);
-  animation: rise 1.2s ease forwards;
-}
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s, transform 0.3s;
+        }
 
-.intro-sub {
-  margin-top: 10px;
-  color: #93c5fd;
-  text-align: center;
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 0.8s;
-}
+        nav a:hover {
+            color: var(--accent-cyan);
+        }
 
-@keyframes rise {
-  to { opacity: 1; transform: translateY(0); }
-}
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            background: linear-gradient(to bottom, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-@keyframes fadeOut {
-  to { opacity: 0; visibility: hidden; }
-}
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
 
-/* ================= FLOATING BACKGROUND ================= */
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
 
-.bg-m {
-  position: fixed;
-  font-size: 180px;
-  font-weight: 900;
-  color: rgba(147,197,253,0.05);
-  z-index: 0;
-  animation: float 10s infinite ease-in-out;
-}
+        .cta-group {
+            display: flex;
+            gap: 15px;
+        }
 
-.bg-m:nth-child(2) { top: 10%; left: 5%; }
-.bg-m:nth-child(3) { top: 50%; right: 10%; animation-delay: 2s; }
-.bg-m:nth-child(4) { bottom: 10%; left: 40%; animation-delay: 4s; }
+        .btn {
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-40px); }
-}
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
+        }
 
-/* ================= HERO ================= */
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(6, 182, 212, 0.4);
+        }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-  padding: 20px;
-}
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: var(--text-main);
+            border: 1px solid var(--glass-border);
+        }
 
-.hero h1 {
-  font-size: 60px;
-  font-family: "Playfair Display";
-}
+        .btn-secondary:hover {
+            background: var(--glass-hover);
+            border-color: var(--text-muted);
+            transform: translateY(-2px);
+        }
 
-.hero p {
-  color: #cbd5e1;
-  margin-top: 10px;
-}
+        /* Global Section Layouts */
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 100px 20px;
+        }
 
-.quote {
-  margin-top: 20px;
-  color: #a5b4fc;
-  font-style: italic;
-}
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
 
-/* ================= SECTIONS ================= */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-cyan));
+            border-radius: 2px;
+        }
 
-section {
-  max-width: 900px;
-  margin: auto;
-  padding: 70px 20px;
-  position: relative;
-  z-index: 2;
-}
+        .glass-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
 
-h2 {
-  color: #38bdf8;
-  font-family: "Playfair Display";
-  margin-bottom: 15px;
-}
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
 
-.box {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-radius: 12px;
-  line-height: 1.8;
-  margin-bottom: 20px;
-  backdrop-filter: blur(10px);
-}
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-ul {
-  line-height: 2;
-}
+        .card:hover {
+            transform: translateY(-5px);
+            background: var(--glass-hover);
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
 
-/* ================= ANIMATION ================= */
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
 
-.fade {
-  opacity: 0;
-  transform: translateY(50px);
-}
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
 
-</style>
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .verify-link {
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: auto;
+            font-weight: 500;
+        }
+
+        .verify-link:hover {
+            color: var(--accent-cyan);
+            text-decoration: underline;
+        }
+
+        /* Timeline Graphics */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background: var(--glass-border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 12px;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--bg-deep);
+            border: 3px solid var(--accent-cyan);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 20px 25px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timeline-info h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .timeline-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Skills Layout */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .skills-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--glass-border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(6, 182, 212, 0.1);
+            border-color: var(--accent-cyan);
+            transform: scale(1.03);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s;
+        }
+
+        .contact-method:hover {
+            background: var(--glass-hover);
+            border-color: var(--accent-blue);
+            transform: translateX(5px);
+        }
+
+        .contact-method i {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            width: 30px;
+            text-align: center;
+        }
+
+        .contact-method div p:first-child {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .contact-method div p:last-child {
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(3, 5, 13, 0.9);
+        }
+
+        footer h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+        }
+
+        footer .credits {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.2);
+        }
+
+        /* Mobile Viewport Management */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            nav ul { display: none; } /* Standard micro-portfolio practice */
+            .hero h1 { font-size: 3rem; }
+            section { padding: 60px 20px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .timeline-content { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- INTRO -->
-<div class="intro">
-  <div>
-    <div class="intro-name">MSK</div>
-    <div class="intro-sub">Welcome to my digital portfolio</div>
-  </div>
-</div>
+    <canvas id="bg-canvas"></canvas>
 
-<!-- FLOATING M -->
-<div class="bg-m">M</div>
-<div class="bg-m">M</div>
-<div class="bg-m">M</div>
+    <nav>
+        <a href="#" class="logo">MSK</a>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>MEDHANI SRI KURRA</h1>
-  <p>Healthcare Enthusiast | Clinical Research Interest | Continuous Learner</p>
-  <p class="quote">“I believe progress is built quietly — one improvement at a time.”</p>
-</div>
+    <section class="hero">
+        <h2>MEDHANI SRI KURRA</h2>
+        <h1>PharmD Graduate</h1>
+        <p>Clinical Research & Data Analytics Enthusiast. Driven by research accuracy, analytical clinical evaluation, and end-to-end evidence discovery workflows.</p>
+        <div class="cta-group">
+            <a href="#contact" class="btn btn-primary"><i class="fa-solid deterioration fa-envelope"></i> Connect</a>
+            <a href="#research" class="btn btn-secondary">View Thesis</a>
+        </div>
+    </section>
 
-<!-- ABOUT -->
-<section class="fade">
-  <h2>About Me</h2>
-  <div class="box">
-    I am a dedicated and growth-focused individual who believes in learning through consistency, curiosity, and real-world experience.
-    My journey is shaped by a desire to understand how systems work, improve step by step, and build a meaningful professional path.
-    I enjoy structured thinking, problem-solving, and exploring ideas that challenge me to grow.
-  </div>
+    <section id="about">
+        <h2 class="section-title">Professional Profile</h2>
+        <div class="glass-box" style="line-height: 1.7; font-size: 1.05rem; color: var(--text-muted);">
+            <p style="margin-bottom: 15px;"><strong style="color: #fff;">Doctor of Pharmacy (PharmD)</strong> graduate actively pivoting toward specialized enterprise roles in clinical trials execution, data compliance operations, and structured safety signal assessments.</p>
+            <p>Equipped with specialized hospital experiential framework spanning adverse drug interaction tracing, structured e-health infrastructure logging, and advanced computational metric extraction utilizing specialized analytical frameworks.</p>
+        </div>
+    </section>
 
-  <div class="box">
-    I stay disciplined, adaptable, and focused on long-term improvement.
-    My mindset is to keep learning, keep improving, and keep moving forward regardless of challenges.
-  </div>
-</section>
+    <section id="certifications">
+        <h2 class="section-title">Valid Certifications</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <div class="card-meta"><i class="fa-solid fa-shield-halved"></i> NIDA Clinical Trials Network</div>
+                    <h3>Good Clinical Practice (GCP)</h3>
+                    <p>6-hour intensive qualification tracking clinical site compliance, data documentation protocols, investigator regulatory obligations, and baseline human subject protection parameters.</p>
+                </div>
+                <span class="verify-link">Valid until Mar 2029</span>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="card-meta"><i class="fa-solid fa-database"></i> Vanderbilt University</div>
+                    <h3>Data Management for Clinical Research</h3>
+                    <p>Electronic data capture infrastructure deployment, compliant case report building patterns, study setup mechanics, and automated programmatic optimization criteria via Coursera.</p>
+                </div>
+                <a href="https://coursera.org/verify/KKU3HZYCGHT9" target="_blank" class="verify-link">Verify Credentials <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="card-meta"><i class="fa-solid fa-graduation-cap"></i> IIT Kharagpur / NPTEL</div>
+                    <h3>Research Methods in Health Promotion</h3>
+                    <p>Advanced study design setups, structured tracking patterns, qualitative/quantitative metrics extraction logic, and statistical parsing mechanics. Elite + Silver tier status.</p>
+                </div>
+                <span class="verify-link">Consolidated Score: 86%</span>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="card-meta"><i class="fa-solid fa-earth-americas"></i> World Health Organization</div>
+                    <h3>Ethics & Governance of AI for Health</h3>
+                    <p>Regulatory frameworks oversight, fundamental transparency conditions, automated algorithm ethics monitoring parameters, and computational safety verification limits.</p>
+                </div>
+                <a href="https://openwho.org/verify/ximin-luzaz-lefob-ryter-dyhan" target="_blank" class="verify-link">Verify Credentials <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="card-meta"><i class="fa-solid fa-brain"></i> Stanford Medicine</div>
+                    <h3>Early Signs of Psychosis in Adolescents</h3>
+                    <p>Certified continuing medical education detailing early stage clinical detection markers, behavioral patterns tracking, and prompt early-intervention paradigm deployments.</p>
+                </div>
+                <span class="verify-link">2.00 AMA PRA Cat 1 Credits™</span>
+            </div>
+        </div>
+    </section>
 
-<!-- GOALS -->
-<section class="fade">
-  <h2>My Goals</h2>
-  <div class="box">
-    My goal is to build a strong career in clinical research, contributing to the development, management, and evaluation of clinical studies.
-    I aim to grow into roles involving clinical trial operations, structured research workflows, and evidence-based decision-making,
-    while continuously improving my understanding of real-world healthcare systems.
-  </div>
-</section>
-
-<!-- MINDSET -->
-<section class="fade">
-  <h2>Mindset</h2>
-  <div class="box">
-    <ul>
-      <li>Learn consistently</li>
-      <li>Improve continuously</li>
-      <li>Stay disciplined</li>
-      <li>Think long-term</li>
-      <li>Build with purpose</li>
-    </ul>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="fade">
-  <h2>Contact</h2>
-  <div class="box">
-    📧 Email: medhanisrik@gmail.com <br>
-    📞 Phone: +91 XXXXX XXXXX <br>
-    📍 Location: Guntur, India <br>
-    🔗 LinkedIn: linkedin.com/in/medhani-sri-kurra
-  </div>
-</section>
-
-<!-- ANIMATION SCRIPT -->
-<script>
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.utils.toArray(".fade").forEach(el => {
-  gsap.to(el, {
-    scrollTrigger: el,
-    opacity: 1,
-    y: 0,
-    duration: 1
-  });
-});
-</script>
-
-</body>
-</html>
+    <section id="publications">
+        <h2 class="section-title">Peer-Reviewed Literature</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <div class="card-meta">International Journal of Science & Research Archive</div>
+                    <h3>Immunity for a Lifetime: Unravelling Neonatal Immunization Impact</h3>
+                    <p>A rigorous investigation mapping longitudinal community health metrics and protection validation
