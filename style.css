@@ -1,40 +1,46 @@
-body {
-  font-family: Arial;
-  margin: 0;
-  background: #0f172a;
-  color: white;
-}
-
-header {
-  text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #4f46e5, #06b6d4);
-}
-
-h1 {
-  font-size: 40px;
-}
-
-section {
-  padding: 50px;
-  max-width: 800px;
-  margin: auto;
-}
-
-h2 {
-  color: #38bdf8;
-}
-
-ul {
-  line-height: 2;
-}
-
-.btn {
-  display: inline-block;
+/* ⭐ OPENING QUOTE */
+.quote {
   margin-top: 20px;
-  padding: 12px 20px;
-  background: black;
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
+  font-size: 18px;
+  color: #a5b4fc;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+/* fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ⭐ FLOATING M BACKGROUND */
+.bg-m, .bg-m2, .bg-m3 {
+  position: absolute;
+  font-size: 180px;
+  font-weight: 900;
+  color: rgba(99,102,241,0.08);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatM 10s infinite ease-in-out;
+}
+
+.bg-m { top: 10%; left: 5%; }
+.bg-m2 { top: 40%; right: 10%; animation-delay: 2s; }
+.bg-m3 { bottom: 10%; left: 30%; animation-delay: 4s; }
+
+@keyframes floatM {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-40px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ⭐ MAKE SURE BACKGROUND ELEMENTS DON’T BLOCK TEXT */
+body {
+  overflow-x: hidden;
+}
+
+section, header {
+  position: relative;
+  z-index: 2;
 }
