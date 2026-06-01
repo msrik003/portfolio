@@ -37,6 +37,91 @@
             letter-spacing: -0.01em;
         }
 
+        /* Prevent scrolling while splash screen is active */
+        body.no-scroll {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* -------------------------------------------
+           SPLASH SCREEN INTRO ANIMATION
+        ------------------------------------------- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--bg-deep);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .splash-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .splash-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent-cyan));
+            background-clip: text;
+            -webkit-background-clip: text;
+            opacity: 0;
+            animation: revealLogo 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards, glowLogo 2s 1s ease-in-out infinite alternate;
+        }
+
+        .splash-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInText 1s 1.2s ease forwards;
+        }
+
+        .loader-line {
+            width: 0px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--accent-cyan), var(--accent-blue), transparent);
+            margin-top: 30px;
+            box-shadow: 0 0 15px var(--accent-cyan);
+            animation: loadProgress 2.8s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes revealLogo {
+            0% { opacity: 0; transform: scale(0.85) translateY(20px); filter: blur(10px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+        }
+
+        @keyframes glowLogo {
+            0% { text-shadow: 0 0 10px rgba(6, 182, 212, 0); }
+            100% { text-shadow: 0 0 35px rgba(6, 182, 212, 0.4); }
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0%; opacity: 0; }
+            20% { opacity: 1; }
+            80% { width: 300px; opacity: 1; }
+            100% { width: 400px; opacity: 0; }
+        }
+
         /* High-End Ambient Kinetic Background */
         #bg-canvas {
             position: fixed;
@@ -119,45 +204,45 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 100px 20px 40px 20px;
+            padding: 120px 20px 40px 20px;
             position: relative;
-        }
-
-        .hero h2 {
-            font-size: 1.2rem;
-            color: var(--accent-cyan);
-            font-weight: 600;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 6rem; /* Enriched scaling footprint */
+            font-size: 5.5rem;
             font-weight: 800;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
             line-height: 1.1;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
             background: linear-gradient(to bottom, #ffffff 50%, #9ca3af 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
         .hero .intro-msg {
-            font-size: 1.25rem;
-            color: var(--text-main);
-            max-width: 750px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            font-weight: 300;
+            font-size: 1.3rem;
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
         }
 
         .hero .quote {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
             font-style: italic;
-            max-width: 600px;
+            max-width: 800px;
+            line-height: 1.8;
             margin-bottom: 40px;
             position: relative;
         }
@@ -191,19 +276,6 @@
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 30px rgba(6, 182, 212, 0.45);
-        }
-
-        .btn-secondary {
-            background: var(--glass-bg);
-            color: var(--text-main);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-3px);
         }
 
         /* Global Layout & Headings */
@@ -262,7 +334,7 @@
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            text-decoration: none; /* Allows entire card to be cleanly clickable */
+            text-decoration: none;
             color: inherit;
         }
 
@@ -540,6 +612,7 @@
 
         @media (max-width: 992px) {
             .hero h1 { font-size: 3.8rem; }
+            .hero h2 { font-size: 1.5rem; }
             .contact-grid { grid-template-columns: 1fr; gap: 20px; }
             section { padding: 90px 20px; }
         }
@@ -547,19 +620,32 @@
         @media (max-width: 768px) {
             nav { padding: 20px; }
             nav ul { display: none; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero h2 { font-size: 0.95rem; letter-spacing: 2px; }
-            .hero .intro-msg { font-size: 1.05rem; }
+            .hero h1 { font-size: 3rem; }
+            .hero h2 { font-size: 1.2rem; letter-spacing: 2px; }
+            .hero .intro-msg { font-size: 1rem; }
+            .hero .quote { font-size: 0.95rem; }
             .glass-box { padding: 30px; }
             .timeline-content { flex-direction: column; align-items: flex-start; gap: 10px; }
             .timeline-date { font-size: 0.8rem; }
+            .splash-logo { font-size: 4rem; }
         }
     </style>
 </head>
-<body>
+<body class="no-scroll">
 
+    <!-- Splash Screen Intro -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logo">MSK</div>
+            <div class="splash-text">Welcome to my portfolio</div>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Background Matrix -->
     <canvas id="bg-canvas"></canvas>
 
+    <!-- Main Navigation -->
     <nav>
         <a href="#" class="logo">MSK</a>
         <ul>
@@ -573,25 +659,28 @@
         </ul>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <h2>MEDHANI SRI KURRA</h2>
-        <h1>PharmD Graduate</h1>
-        <p class="intro-msg">Clinical Research & Data Analytics Enthusiast</p>
-        <p class="quote">"Driven by research accuracy, analytical clinical evaluation, and end-to-end evidence discovery workflows."</p>
+        <h1>MEDHANI SRI KURRA</h1>
+        <h2>PharmD Graduate</h2>
+        <p class="intro-msg">Clinical Research Enthusiast | Data Analytics Enthusiast</p>
+        <p class="quote">"Building expertise through research, curiosity, and continuous growth. I believe progress is built quietly—through consistency, curiosity, and continuous improvement. Every experience is an opportunity to learn, grow, and move closer to meaningful impact."</p>
         <div class="cta-group">
             <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Connect Direct</a>
-            <a href="#research" class="btn btn-secondary">View Thesis</a>
         </div>
     </section>
 
+    <!-- Professional Profile Section -->
     <section id="about">
         <h2 class="section-title">Professional Profile</h2>
-        <div class="glass-box" style="line-height: 1.8; font-size: 1.05rem; color: var(--text-muted);">
-            <p style="margin-bottom: 20px;"><strong style="color: #fff;">Doctor of Pharmacy (PharmD)</strong> graduate actively pivoting toward specialized roles in clinical trials execution, data compliance operations, and structured safety signal assessments.</p>
-            <p>Equipped with a solid clinical foundation built through an intensive hospital residency at Aster Ramesh Hospitals, alongside verified expertise in adverse drug reaction tracking, electronic medical data capture systems, and GCP-compliant research architectures.</p>
+        <div class="glass-box" style="line-height: 1.9; font-size: 1.05rem; color: var(--text-muted);">
+            <p style="margin-bottom: 25px;"><strong style="color: #fff;">I am a dedicated Doctor of Pharmacy (PharmD) graduate</strong> actively pursuing specialized roles within clinical trial execution, data compliance operations, and pharmacovigilance. My academic journey has instilled a robust foundation in clinical pharmacy, which I am now synergizing with my passion for healthcare data analytics and evidence-based research methodologies.</p>
+            
+            <p>Through my comprehensive hospital residency at Aster Ramesh Hospitals and rigorous academic thesis work, I have cultivated practical, hands-on expertise in adverse drug reaction (ADR) monitoring, Electronic Medical Record (EMR) navigation, and Good Clinical Practice (GCP) compliant workflows. I am deeply committed to leveraging structured data and scientific inquiry to bridge the gap between clinical research and tangible patient outcomes, continually expanding my technical skill set to drive innovation in global healthcare solutions.</p>
         </div>
     </section>
 
+    <!-- Certifications Section -->
     <section id="certifications">
         <h2 class="section-title">Verified Certifications</h2>
         <div class="grid">
@@ -642,6 +731,7 @@
         </div>
     </section>
 
+    <!-- Publications Section -->
     <section id="publications">
         <h2 class="section-title">Peer-Reviewed Literature</h2>
         <div class="grid">
@@ -674,6 +764,7 @@
         </div>
     </section>
 
+    <!-- Research Thesis Section -->
     <section id="research">
         <h2 class="section-title">Core Thesis Investigation</h2>
         <div class="glass-box">
@@ -697,6 +788,7 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills">
         <h2 class="section-title">Technical Skill Architecture</h2>
         <div class="skills-container">
@@ -725,6 +817,7 @@
         </div>
     </section>
 
+    <!-- Achievements Section -->
     <section id="achievements">
         <h2 class="section-title">Awards & Scientific Presence</h2>
         <div class="timeline">
@@ -761,6 +854,7 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-grid">
@@ -799,14 +893,27 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <h2>Let's Drive Healthcare Innovation.</h2>
         <p>Open to collaborative clinical operations, global trials infrastructure, and analytics deployment tracks.</p>
         <p class="credits">&copy; 2026 Medhani Sri Kurra. All Rights Reserved.</p>
     </footer>
 
-    <!-- High-Performance Interactive Background Micro-Engine -->
+    <!-- Interactive Background & Splash Screen Logic Script -->
     <script>
+        // Splash Screen Removal Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const splashScreen = document.getElementById('splash-screen');
+            // Give the animation 3.2 seconds to run completely before smoothly fading it out
+            setTimeout(() => {
+                splashScreen.style.opacity = '0';
+                splashScreen.style.visibility = 'hidden';
+                document.body.classList.remove('no-scroll'); // Re-enable site scrolling
+            }, 3200);
+        });
+
+        // High-Performance Interactive Matrix Background
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
 
