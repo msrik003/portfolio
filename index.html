@@ -4,11 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Medhani Sri Kurra | Clinical Portfolio</title>
+<title>Medhani Sri Kurra | Clinical Research Portfolio</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
 body {
@@ -19,7 +17,53 @@ body {
   overflow-x: hidden;
 }
 
-/* FLOATING M BACKGROUND */
+/* ⭐ INTRO SCREEN */
+.intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #050816;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOut 2.5s ease forwards;
+  animation-delay: 2.2s;
+}
+
+.intro-name {
+  font-size: 80px;
+  font-weight: 800;
+  letter-spacing: 6px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: rise 1.2s ease forwards;
+}
+
+.intro-sub {
+  margin-top: 10px;
+  color: #93c5fd;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* ⭐ FLOATING M BACKGROUND */
 .bg-m, .bg-m2, .bg-m3 {
   position: absolute;
   font-size: 180px;
@@ -58,17 +102,10 @@ h1 {
   font-weight: bold;
 }
 
-/* QUOTE */
 .quote {
   margin-top: 15px;
   color: #a5b4fc;
   font-style: italic;
-  animation: fadeIn 2s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* SECTION */
@@ -80,7 +117,7 @@ section {
   z-index: 2;
 }
 
-/* CARDS */
+/* CARD */
 .card {
   background: rgba(255,255,255,0.06);
   padding: 20px;
@@ -100,7 +137,7 @@ h3 {
   color: #a5b4fc;
 }
 
-/* SKILLS GRID */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
@@ -111,7 +148,13 @@ h3 {
 
 <body>
 
-<!-- BACKGROUND -->
+<!-- ⭐ INTRO -->
+<div class="intro">
+  <h1 class="intro-name">MSK</h1>
+  <p class="intro-sub">Clinical Research • PharmD • Pharmacovigilance</p>
+</div>
+
+<!-- ⭐ FLOATING BACKGROUND -->
 <div class="bg-m">M</div>
 <div class="bg-m2">M</div>
 <div class="bg-m3">M</div>
@@ -121,7 +164,7 @@ h3 {
 
   <h1>Ms. Medhani Sri Kurra</h1>
 
-  <p>PharmD Graduate | Clinical Research | Pharmacovigilance | CDM</p>
+  <p>PharmD Graduate | Clinical Research | Pharmacovigilance | Clinical Data Management</p>
 
   <p class="quote">
     “Every challenge in healthcare is a chance to improve a life.”
@@ -140,10 +183,12 @@ h3 {
 <!-- PROFILE -->
 <section>
   <h2>Profile Summary</h2>
+
   <div class="card">
-    PharmD graduate seeking roles in clinical research and clinical data management.
-    Skilled in EMR, REDCap, ADR reporting, GCP workflows, GraphPad Prism analysis,
-    CRFs and ICF documentation with strong clinical trial understanding.
+    PharmD graduate with strong foundation in clinical research, pharmacovigilance, and clinical data management.
+    Experienced in ADR reporting, EMR documentation, REDCap data systems, and GCP-compliant clinical workflows.
+    Skilled in GraphPad Prism for statistical analysis and clinical documentation (CRFs, ICFs).
+    Actively seeking opportunities in CROs and pharmaceutical research organizations.
   </div>
 </section>
 
@@ -153,17 +198,17 @@ h3 {
 
   <div class="card">
     <h3>Doctor of Pharmacy (PharmD)</h3>
-    <p>Vignan Pharmacy College, Guntur | 78.3% | 2026</p>
+    Vignan Pharmacy College, Guntur | 78.3% | 2026
   </div>
 
   <div class="card">
     <h3>Intermediate (BIPC)</h3>
-    <p>Narayana Junior College | 889/1000 | 2019</p>
+    Narayana Junior College | 889/1000 | 2019
   </div>
 
   <div class="card">
     <h3>Secondary Education</h3>
-    <p>Top Kids School, Guntur | 83.6% | 2017</p>
+    Top Kids School, Guntur | 83.6% | 2017
   </div>
 </section>
 
@@ -172,25 +217,29 @@ h3 {
   <h2>Clinical Internship</h2>
 
   <div class="card">
-    <h3>Aster Ramesh Hospitals</h3>
-    <p>
-      • ADR reporting & pharmacovigilance<br>
-      • Patient counseling & medication management<br>
-      • Clinical documentation & ward participation
-    </p>
+    <h3>Aster Ramesh Hospitals, Guntur</h3>
+
+    ✔ Participated in multidisciplinary clinical rounds  
+    ✔ ADR monitoring and pharmacovigilance reporting  
+    ✔ Patient counseling and medication adherence support  
+    ✔ EMR documentation and clinical data entry  
+    ✔ Patient safety and healthcare awareness activities  
   </div>
 </section>
 
 <!-- RESEARCH -->
 <section>
-  <h2>Research Project</h2>
+  <h2>Academic Research</h2>
 
   <div class="card">
-    <h3>Immunization Impact Study</h3>
-    <p>
-      Study of 1,156 participants using WHO data. GraphPad Prism analysis showed
-      97% immunization coverage with major barrier being accessibility (69.71%).
-    </p>
+    <h3>Immunization Impact Study (PharmD Thesis)</h3>
+
+    Conducted retrospective study of 1,156 participants using WHO data.
+
+    ✔ 97% immunization coverage observed  
+    ✔ Strong reduction in preventable disease incidence  
+    ✔ Main barrier: accessibility issues (69.71%)  
+    ✔ Statistical analysis using GraphPad Prism  
   </div>
 </section>
 
@@ -199,25 +248,25 @@ h3 {
   <h2>Publications</h2>
 
   <div class="card">
-    <p>• Immunity for a Lifetime – IJ Science Archive</p>
-    <p>• Diabetic Foot Ulcer Study – Medical Journal</p>
-    <p>• SJS Case Report – IOSR Journal</p>
+    • Immunity for a Lifetime – IJ Science Archive  
+    • Diabetic Foot Ulcer Study – Medical Journal  
+    • Stevens-Johnson Syndrome Case Report – IOSR Journal  
   </div>
 </section>
 
 <!-- SKILLS -->
 <section>
-  <h2>Skills</h2>
+  <h2>Core Competencies</h2>
 
   <div class="grid">
-
     <div class="card">Clinical Data Management</div>
     <div class="card">Pharmacovigilance</div>
+    <div class="card">ADR Reporting</div>
     <div class="card">EMR / REDCap</div>
     <div class="card">GraphPad Prism</div>
     <div class="card">GCP / ICH Guidelines</div>
+    <div class="card">Clinical Documentation</div>
     <div class="card">Patient Counseling</div>
-
   </div>
 </section>
 
@@ -226,8 +275,7 @@ h3 {
   <h2>Certifications</h2>
 
   <div class="card">
-    Good Clinical Practice (GCP) • Pharmacogenomics • NPTEL Research Methods •
-    Data Management (Vanderbilt) • WHO AI Ethics
+    Good Clinical Practice (GCP) • Pharmacogenomics • NPTEL Research Methods • Data Management (Vanderbilt) • WHO AI Ethics
   </div>
 </section>
 
@@ -239,17 +287,6 @@ h3 {
     Make A Difference NGO – Mentored students and supported academic learning programs.
   </div>
 </section>
-
-<!-- ANIMATION -->
-<script>
-gsap.from("h1", {opacity:0, y:60, duration:1});
-gsap.from(".card", {
-  opacity:0,
-  y:40,
-  duration:1,
-  stagger:0.2
-});
-</script>
 
 </body>
 </html>
