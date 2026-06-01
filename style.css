@@ -1,14 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #0b1020, #050816);
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
-/* FULL SCREEN INTRO */
+/* ================= INTRO ================= */
+
 .intro {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  inset: 0;
   background: #050816;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -16,43 +22,149 @@
   animation-delay: 2.2s;
 }
 
-/* BIG NAME ANIMATION */
 .intro-name {
-  font-size: 80px;
-  font-weight: 800;
+  font-size: 90px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
   letter-spacing: 6px;
-  color: white;
+  background: linear-gradient(90deg, #ffffff, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(40px);
   animation: rise 1.2s ease forwards;
 }
 
-/* SUB TEXT */
 .intro-sub {
   margin-top: 10px;
   color: #93c5fd;
+  text-align: center;
   opacity: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
   animation: fadeIn 1.5s ease forwards;
   animation-delay: 0.8s;
 }
 
-/* NAME RISE */
-@keyframes rise {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ================= FLOATING BACKGROUND ================= */
+
+.bg-m {
+  position: fixed;
+  font-size: 220px;
+  font-weight: 900;
+  color: rgba(147,197,253,0.05);
+  z-index: 0;
+  user-select: none;
+  pointer-events: none;
+  animation: float 12s infinite ease-in-out;
 }
 
-/* FADE IN */
+.bg-m:nth-child(2) { top: 5%; left: 5%; }
+.bg-m:nth-child(3) { top: 55%; right: 8%; animation-delay: 2s; }
+.bg-m:nth-child(4) { bottom: 10%; left: 35%; animation-delay: 4s; }
+
+/* ================= HERO ================= */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 70px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffffff, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  color: #cbd5e1;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.quote {
+  margin-top: 25px;
+  color: #a5b4fc;
+  font-style: italic;
+  font-size: 16px;
+  max-width: 600px;
+}
+
+/* ================= SECTIONS ================= */
+
+section {
+  max-width: 950px;
+  margin: auto;
+  padding: 80px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #38bdf8;
+  letter-spacing: 1px;
+}
+
+/* ================= CARD ================= */
+
+.box {
+  background: rgba(255,255,255,0.06);
+  padding: 22px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  line-height: 1.8;
+  transition: 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  border-color: #38bdf8;
+  box-shadow: 0 10px 30px rgba(56,189,248,0.15);
+}
+
+/* ================= LIST ================= */
+
+ul {
+  line-height: 2;
+  padding-left: 18px;
+}
+
+/* ================= ANIMATION ================= */
+
+.fade {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes fadeIn {
   to { opacity: 1; }
 }
 
-/* INTRO DISAPPEAR */
 @keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-50px); }
 }
