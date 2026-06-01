@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Medhani Sri Kurra | Clinical Research Portfolio</title>
+<title>Medhani Sri Kurra | Portfolio</title>
+
+<!-- Premium Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -15,42 +18,83 @@ body {
   margin: 0;
   background: #050816;
   color: white;
-  font-family: Arial;
+  font-family: "Poppins", sans-serif;
   overflow-x: hidden;
 }
 
-/* ⭐ INTRO SCREEN */
+/* ================= INTRO ================= */
+
 .intro {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  inset: 0;
   background: #050816;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  animation: fadeOut 2.5s ease forwards;
+  overflow: hidden;
+  animation: fadeOut 2.8s ease forwards;
   animation-delay: 2.2s;
 }
 
+/* floating M background */
+.m-bg {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  font-size: 130px;
+  font-weight: 900;
+  color: rgba(147,197,253,0.06);
+  white-space: pre-wrap;
+  line-height: 160px;
+  transform: rotate(-15deg);
+  animation: move 20s linear infinite;
+}
+
+.m-bg2 {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  font-size: 130px;
+  font-weight: 900;
+  color: rgba(99,102,241,0.05);
+  white-space: pre-wrap;
+  line-height: 160px;
+  transform: rotate(12deg);
+  animation: move 25s linear infinite reverse;
+}
+
+@keyframes move {
+  0% { transform: translateY(0) rotate(-15deg); }
+  100% { transform: translateY(-400px) rotate(-15deg); }
+}
+
+/* NAME INTRO */
 .intro-name {
-  font-size: 80px;
-  font-weight: 800;
-  letter-spacing: 6px;
+  font-size: 100px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 4px;
+  font-style: italic;
+  background: linear-gradient(90deg,#fff,#93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(40px);
   animation: rise 1.2s ease forwards;
+  z-index: 2;
+  position: relative;
+  text-align: center;
 }
 
 .intro-sub {
-  margin-top: 10px;
+  margin-top: 15px;
   color: #93c5fd;
+  font-style: italic;
   opacity: 0;
   animation: fadeIn 1.5s ease forwards;
   animation-delay: 0.8s;
+  text-align: center;
 }
 
 @keyframes rise {
@@ -65,27 +109,8 @@ body {
   to { opacity: 0; visibility: hidden; }
 }
 
-/* ⭐ FLOATING BACKGROUND M */
-.bg-m {
-  position: absolute;
-  font-size: 180px;
-  font-weight: 900;
-  color: rgba(99,102,241,0.08);
-  animation: float 10s infinite ease-in-out;
-  pointer-events: none;
-}
+/* ================= MAIN ================= */
 
-.bg1 { top: 10%; left: 5%; }
-.bg2 { top: 40%; right: 10%; }
-.bg3 { bottom: 10%; left: 30%; }
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-40px); }
-  100% { transform: translateY(0px); }
-}
-
-/* HERO */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -93,67 +118,71 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
-  z-index: 2;
   padding: 20px;
 }
 
-h1 {
-  font-size: 55px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  background: linear-gradient(90deg, #fff, #93c5fd);
+/* BIG NAME HERO */
+.hero-name {
+  font-size: 72px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg,#ffffff,#93c5fd);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.hero-title {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #cbd5e1;
+  font-weight: 300;
+}
+
 .quote {
-  margin-top: 15px;
+  margin-top: 20px;
   color: #a5b4fc;
   font-style: italic;
 }
 
-/* SECTION */
+/* sections */
 section {
-  padding: 60px 20px;
-  max-width: 1000px;
+  padding: 70px 20px;
+  max-width: 900px;
   margin: auto;
-  position: relative;
-  z-index: 2;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(40px);
 }
 
-/* CARD */
+/* cards */
 .card {
   background: rgba(255,255,255,0.06);
-  padding: 20px;
-  border-radius: 15px;
+  padding: 22px;
+  border-radius: 16px;
   margin-top: 15px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
   transition: 0.3s ease;
+  line-height: 1.7;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: #38bdf8;
 }
 
-/* HEADINGS */
+/* headings */
 h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
   color: #38bdf8;
   margin-bottom: 15px;
 }
 
-h3 {
-  color: #a5b4fc;
-}
-
-/* GRID */
+/* grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
   gap: 15px;
 }
 </style>
@@ -161,46 +190,52 @@ h3 {
 
 <body>
 
-<!-- ⭐ INTRO -->
+<!-- INTRO -->
 <div class="intro">
-  <h1 class="intro-name">MSK</h1>
-  <p class="intro-sub">Clinical Research • PharmD • Pharmacovigilance</p>
-</div>
 
-<!-- ⭐ FLOATING BACKGROUND -->
-<div class="bg-m bg1">M</div>
-<div class="bg-m bg2">M</div>
-<div class="bg-m bg3">M</div>
+  <div class="m-bg">
+M M M M M M M M M M M M M M M M M M
+M M M M M M M M M M M M M M M M M M
+M M M M M M M M M M M M M M M M M M
+  </div>
+
+  <div class="m-bg2">
+M M M M M M M M M M M M M M M M M M
+M M M M M M M M M M M M M M M M M M
+M M M M M M M M M M M M M M M M M M
+  </div>
+
+  <div>
+    <div class="intro-name">MSK</div>
+    <div class="intro-sub">A Journey of Passion, Learning & Growth</div>
+  </div>
+
+</div>
 
 <!-- HERO -->
 <div class="hero">
 
-  <h1>Ms. Medhani Sri Kurra</h1>
+  <div class="hero-name">MEDHANI SRI KURRA</div>
 
-  <p>PharmD Graduate | Clinical Research | Pharmacovigilance | Clinical Data Management</p>
+  <div class="hero-title">
+    PharmD Graduate | Healthcare Enthusiast | Research & Clinical Sciences
+  </div>
 
   <p class="quote">
-    “Precision in data, compassion in care — shaping the future of clinical research.”
-  </p>
-
-  <p style="margin-top:10px; color:#cbd5e1;">
-    📧 medhanisrik@gmail.com | 📞 +91-7569005955 / 8179940069 | 📍 Guntur
-  </p>
-
-  <p style="color:#93c5fd;">
-    linkedin.com/in/medhani-sri-kurra
+    “Excellence is built through consistency, curiosity, and care.”
   </p>
 
 </div>
 
-<!-- PROFILE -->
+<!-- ABOUT -->
 <section>
-  <h2>Profile Summary</h2>
+  <h2>About Me</h2>
   <div class="card">
-    PharmD graduate with strong foundation in clinical research, pharmacovigilance, and clinical data management.
-    Experienced in ADR reporting, EMR documentation, REDCap systems, and GCP-compliant workflows.
-    Skilled in GraphPad Prism statistical analysis and clinical research documentation (CRFs, ICFs).
-    Seeking opportunities in CROs and pharmaceutical research organizations.
+    I am a passionate healthcare graduate with a strong interest in understanding how medicine,
+    research, and patient care come together to improve human life.
+    <br><br>
+    I enjoy structured thinking, problem-solving, and exploring real-world healthcare systems.
+    My journey has helped me develop discipline, analytical mindset, and a commitment to continuous learning.
   </div>
 </section>
 
@@ -209,98 +244,53 @@ h3 {
   <h2>Education</h2>
 
   <div class="card">
-    <h3>Doctor of Pharmacy (PharmD)</h3>
-    Vignan Pharmacy College, Guntur | 78.3% | 2026
+    <b>PharmD</b> — Vignan Pharmacy College, Guntur (2026)
   </div>
 
   <div class="card">
-    <h3>Intermediate (BIPC)</h3>
-    Narayana Junior College | 889/1000 | 2019
+    <b>Intermediate</b> — Narayana Junior College (2019)
   </div>
 
   <div class="card">
-    <h3>Secondary Education</h3>
-    Top Kids School, Guntur | 83.6% | 2017
+    <b>Schooling</b> — Top Kids School, Guntur (2017)
   </div>
 </section>
 
-<!-- INTERNSHIP -->
+<!-- EXPERIENCE -->
 <section>
-  <h2>Clinical Internship</h2>
+  <h2>Experience</h2>
 
   <div class="card">
-    <h3>Aster Ramesh Hospitals, Guntur</h3>
-
-    ✔ Multidisciplinary ward rounds participation  
-    ✔ ADR monitoring & pharmacovigilance reporting  
-    ✔ Patient counseling & medication adherence support  
-    ✔ EMR documentation & clinical data entry  
-    ✔ Patient safety & healthcare awareness activities  
+    Exposure to hospital-based healthcare environments helped me understand patient care flow,
+    teamwork in clinical settings, and the importance of precision in healthcare documentation.
   </div>
 </section>
 
-<!-- RESEARCH -->
+<!-- PROJECT -->
 <section>
-  <h2>Academic Research</h2>
+  <h2>Academic Project</h2>
 
   <div class="card">
-    <h3>Immunization Impact Study (PharmD Thesis)</h3>
-
-    Conducted retrospective study of 1,156 participants using WHO data.
-
-    ✔ 97% immunization coverage observed  
-    ✔ Strong reduction in preventable diseases  
-    ✔ Major barrier: accessibility issues (69.71%)  
-    ✔ GraphPad Prism statistical analysis  
-  </div>
-</section>
-
-<!-- PUBLICATIONS -->
-<section>
-  <h2>Publications</h2>
-
-  <div class="card">
-    • Immunity for a Lifetime – IJ Science Archive  
-    • Diabetic Foot Ulcer Study – Medical Journal  
-    • Stevens-Johnson Syndrome Case Report – IOSR Journal  
+    Conducted a structured study on immunization patterns and their impact on community health.
+    The work focused on identifying trends, challenges, and the importance of preventive healthcare systems.
   </div>
 </section>
 
 <!-- SKILLS -->
 <section>
-  <h2>Core Competencies</h2>
+  <h2>Skills</h2>
 
   <div class="grid">
-    <div class="card">Clinical Data Management</div>
-    <div class="card">Pharmacovigilance</div>
-    <div class="card">ADR Reporting</div>
-    <div class="card">EMR / REDCap</div>
-    <div class="card">GraphPad Prism</div>
-    <div class="card">GCP / ICH Guidelines</div>
-    <div class="card">Clinical Documentation</div>
-    <div class="card">Patient Counseling</div>
+    <div class="card">Research Thinking</div>
+    <div class="card">Communication</div>
+    <div class="card">Clinical Observation</div>
+    <div class="card">Data Interpretation</div>
+    <div class="card">Team Collaboration</div>
+    <div class="card">Documentation</div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section>
-  <h2>Certifications</h2>
-
-  <div class="card">
-    Good Clinical Practice (GCP) • Pharmacogenomics • NPTEL Research Methods • Data Management (Vanderbilt) • WHO AI Ethics
-  </div>
-</section>
-
-<!-- VOLUNTEER -->
-<section>
-  <h2>Volunteer Experience</h2>
-
-  <div class="card">
-    Make A Difference NGO – Mentored students and supported academic learning programs.
-  </div>
-</section>
-
-<!-- ANIMATION SCRIPT -->
+<!-- ANIMATION -->
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
