@@ -7,6 +7,8 @@
 <title>Medhani Sri Kurra | Clinical Research Portfolio</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
 body {
@@ -63,22 +65,21 @@ body {
   to { opacity: 0; visibility: hidden; }
 }
 
-/* ⭐ FLOATING M BACKGROUND */
-.bg-m, .bg-m2, .bg-m3 {
+/* ⭐ FLOATING BACKGROUND M */
+.bg-m {
   position: absolute;
   font-size: 180px;
   font-weight: 900;
   color: rgba(99,102,241,0.08);
-  z-index: 0;
+  animation: float 10s infinite ease-in-out;
   pointer-events: none;
-  animation: floatM 10s infinite ease-in-out;
 }
 
-.bg-m { top: 10%; left: 5%; }
-.bg-m2 { top: 40%; right: 10%; animation-delay: 2s; }
-.bg-m3 { bottom: 10%; left: 30%; animation-delay: 4s; }
+.bg1 { top: 10%; left: 5%; }
+.bg2 { top: 40%; right: 10%; }
+.bg3 { bottom: 10%; left: 30%; }
 
-@keyframes floatM {
+@keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-40px); }
   100% { transform: translateY(0px); }
@@ -100,6 +101,10 @@ body {
 h1 {
   font-size: 55px;
   font-weight: bold;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #fff, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .quote {
@@ -115,6 +120,8 @@ section {
   margin: auto;
   position: relative;
   z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 /* CARD */
@@ -125,6 +132,12 @@ section {
   margin-top: 15px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #38bdf8;
 }
 
 /* HEADINGS */
@@ -155,9 +168,9 @@ h3 {
 </div>
 
 <!-- ⭐ FLOATING BACKGROUND -->
-<div class="bg-m">M</div>
-<div class="bg-m2">M</div>
-<div class="bg-m3">M</div>
+<div class="bg-m bg1">M</div>
+<div class="bg-m bg2">M</div>
+<div class="bg-m bg3">M</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -167,7 +180,7 @@ h3 {
   <p>PharmD Graduate | Clinical Research | Pharmacovigilance | Clinical Data Management</p>
 
   <p class="quote">
-    “Every challenge in healthcare is a chance to improve a life.”
+    “Precision in data, compassion in care — shaping the future of clinical research.”
   </p>
 
   <p style="margin-top:10px; color:#cbd5e1;">
@@ -183,12 +196,11 @@ h3 {
 <!-- PROFILE -->
 <section>
   <h2>Profile Summary</h2>
-
   <div class="card">
     PharmD graduate with strong foundation in clinical research, pharmacovigilance, and clinical data management.
-    Experienced in ADR reporting, EMR documentation, REDCap data systems, and GCP-compliant clinical workflows.
-    Skilled in GraphPad Prism for statistical analysis and clinical documentation (CRFs, ICFs).
-    Actively seeking opportunities in CROs and pharmaceutical research organizations.
+    Experienced in ADR reporting, EMR documentation, REDCap systems, and GCP-compliant workflows.
+    Skilled in GraphPad Prism statistical analysis and clinical research documentation (CRFs, ICFs).
+    Seeking opportunities in CROs and pharmaceutical research organizations.
   </div>
 </section>
 
@@ -219,11 +231,11 @@ h3 {
   <div class="card">
     <h3>Aster Ramesh Hospitals, Guntur</h3>
 
-    ✔ Participated in multidisciplinary clinical rounds  
-    ✔ ADR monitoring and pharmacovigilance reporting  
-    ✔ Patient counseling and medication adherence support  
-    ✔ EMR documentation and clinical data entry  
-    ✔ Patient safety and healthcare awareness activities  
+    ✔ Multidisciplinary ward rounds participation  
+    ✔ ADR monitoring & pharmacovigilance reporting  
+    ✔ Patient counseling & medication adherence support  
+    ✔ EMR documentation & clinical data entry  
+    ✔ Patient safety & healthcare awareness activities  
   </div>
 </section>
 
@@ -237,9 +249,9 @@ h3 {
     Conducted retrospective study of 1,156 participants using WHO data.
 
     ✔ 97% immunization coverage observed  
-    ✔ Strong reduction in preventable disease incidence  
-    ✔ Main barrier: accessibility issues (69.71%)  
-    ✔ Statistical analysis using GraphPad Prism  
+    ✔ Strong reduction in preventable diseases  
+    ✔ Major barrier: accessibility issues (69.71%)  
+    ✔ GraphPad Prism statistical analysis  
   </div>
 </section>
 
@@ -287,6 +299,20 @@ h3 {
     Make A Difference NGO – Mentored students and supported academic learning programs.
   </div>
 </section>
+
+<!-- ANIMATION SCRIPT -->
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray("section").forEach(sec => {
+  gsap.from(sec, {
+    scrollTrigger: sec,
+    opacity: 0,
+    y: 60,
+    duration: 1
+  });
+});
+</script>
 
 </body>
 </html>
